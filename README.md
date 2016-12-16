@@ -70,7 +70,7 @@ $ npm install
 $ npm run start
 ```
 
-打开游览器，地址栏输入`http://localhost:8080`；
+打开游览器，地址栏输入`http://localhost:8080/home`；
 
 #### License
 
