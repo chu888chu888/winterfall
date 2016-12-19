@@ -1,4 +1,10 @@
-/*
+/**
+ * Copyright (c) 2016-present, ecidi.
+ * All rights reserved.
+ * 
+ * This source code is licensed under the GPL-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
  * Store
  * Redux 应用只有一个单一的 store。
  */

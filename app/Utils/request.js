@@ -1,4 +1,11 @@
-
+/**
+ * Copyright (c) 2016-present, ecidi.
+ * All rights reserved.
+ * 
+ * This source code is licensed under the GPL-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+ 
 import 'whatwg-fetch';
 
 // 解析通过网络响应返回来的JSON字符串
