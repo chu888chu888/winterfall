@@ -18,14 +18,16 @@ import Footer from 'Components/Footer';
 /* styles */
 import styles from './styles.css';
 
-function BasePage(props) {
-    return (
-        <div className={styles.wrapper}>
-            <Helmet titleTemplate="%s - Ecidi"/>
-            {React.Children.toArray(props.children)}
-            <Footer />
-        </div>
-    );
+class BasePage extends React.Component {
+	render() {
+	    return (
+	        <div className={styles.wrapper}>
+	            <Helmet titleTemplate="%s - Ecidi"/>
+	            {React.Children.toArray(this.props.children)}
+	            <Footer />
+	        </div>
+	    );
+	}
 }
 
 BasePage.defaultProps = {
