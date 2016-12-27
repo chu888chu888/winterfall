@@ -9,6 +9,9 @@
 .centered {
 	text-align: center;
 }
+.left{
+	text-align: left;
+}
 
 p,
 label {
@@ -34,4 +37,5 @@ label {
 	width: 344px;
 	height: 167px;
 	background-image: url(./images/winter2.png);
+	text-align: left;
 }

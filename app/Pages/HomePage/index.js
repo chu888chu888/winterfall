@@ -94,7 +94,11 @@ export class HomePage extends React.Component {
 						</h1>
 					</section>
 					<section className={`${styles.textSection} ${styles.centered}`}>
-						<h2 className={styles.background}></h2>
+						<h2 className={styles.background}>我是背景图</h2>
+						<div className={styles.left}>
+							真的图片img：
+							<img src={require("./images/winter2.png")} alt="我是真图，上面是背景图！"/>
+						</div>
 					</section>
 					<section className={styles.textSection}>
 						<h2>
