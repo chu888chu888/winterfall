@@ -48,8 +48,38 @@
       }
     }
   },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+      "browser": true,
+      "node": true,
+      "mocha": true,
+      "es6": true
+    },
+    "plugins": [
+      "redux-saga",
+      "react",
+      "jsx-a11y"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "settings": {
+      "import/resolver": {
+        "webpack": {
+          "config": "./internals/webpack/webpack.test.babel.js"
+        }
+      }
+    }
+  },
   "devDependencies": {
     "babel-core": "6.18.0",
+    "babel-eslint": "7.1.0",
     "babel-loader": "6.2.7",
     "babel-plugin-istanbul": "2.0.3",
     "babel-plugin-react-intl": "2.2.0",
@@ -62,6 +92,7 @@
     "babel-preset-react-hmre": "1.1.1",
     "babel-preset-stage-0": "6.16.0",
     "css-loader": "0.25.0",
+    "eslint": "3.9.0",
     "eventsource-polyfill": "0.9.6",
     "expect": "1.20.2",
     "expect-jsx": "2.6.0",
