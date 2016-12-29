@@ -5,7 +5,35 @@
 
 ### 借鉴winter-simple的，敬请期待完整的文档。
 
-####
+#### JavaScript编写规范
+
+详见 `package.json` 中 `eslintConfig` 的配置，详见[http://eslint.cn/](http://eslint.cn/docs/rules/)。
+
+具体涵盖如下几项：
+
+1. 要求箭头函数的参数使用圆括号
+
+2. 要求箭头函数体使用大括号
+
+3. 要求或禁止末尾逗号
+
+4. 强制使用一致的缩进
+
+5. 强制一行的最大长度
+
+6. 要求方法链中每个调用都有一个换行符
+
+7. 禁用 console
+
+8. 禁止在变量定义之前使用它们
+
+9. 要求使用模板字面量而非字符串连接
+
+10. 其他详见:
+  [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)、
+  [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)、
+  [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)、
+  [eslint-plugin-redux-saga](https://github.com/pke/eslint-plugin-redux-saga)
 
 ### winterfall-simple  v 1.0.0
 

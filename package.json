@@ -71,22 +71,18 @@
       }
     },
     "rules": {
-      // 要求箭头函数的参数使用圆括号
       "arrow-parens": [
         "error",
         "always"
       ],
-      // 要求箭头函数体使用大括号
       "arrow-body-style": [
         2,
         "as-needed"
       ],
-      // 要求或禁止末尾逗号
       "comma-dangle": [
         2,
         "always-multiline"
       ],
-      // 强制使用一致的缩进
       "indent": ["error", "tab", { "VariableDeclarator": 1 }],
 
       "import/imports-first": 0,
@@ -97,7 +93,6 @@
       "import/no-unresolved": 2,
       "import/prefer-default-export": 0,
       
-      // 详见https://github.com/evcohen/eslint-plugin-jsx-a11y
       "jsx-a11y/aria-props": 2,
       "jsx-a11y/heading-has-content": 0,
       "jsx-a11y/href-no-hash": 2,
@@ -106,20 +101,13 @@
       "jsx-a11y/role-has-required-aria-props": 2,
       "jsx-a11y/role-supports-aria-props": 2,
 
-      // 强制一行的最大长度
       "max-len": 0,
-      // 要求方法链中每个调用都有一个换行符
       "newline-per-chained-call": 0,
-      // 禁用 console
       "no-console": 1,
-      // 禁止在变量定义之前使用它们
       "no-use-before-define": 0,
-      // 要求使用模板字面量而非字符串连接
       "prefer-template": 2,
-      // this指向问题
       "class-methods-use-this": 0,
 
-      // 详见https://github.com/yannickcr/eslint-plugin-react
       "react/forbid-prop-types": 0,
       "react/jsx-first-prop-new-line": [
         2,
@@ -130,7 +118,6 @@
       "react/require-extension": 0,
       "react/self-closing-comp": 0,
 
-      // 详见https://github.com/pke/eslint-plugin-redux-saga
       "redux-saga/no-yield-in-race": 2,
       "redux-saga/yield-effects": 2,
       "require-yield": 0
