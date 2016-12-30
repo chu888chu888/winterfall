@@ -111,6 +111,7 @@
       "react/self-closing-comp": 0,
       "react/jsx-indent": [2, "tab"],
       "react/jsx-indent-props": [2, "tab"],
+      "react/prefer-stateless-function": 0,
 
       "redux-saga/no-yield-in-race": 2,
       "redux-saga/yield-effects": 2,
