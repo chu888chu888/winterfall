@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development node server",
     "build": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js --color -p --progress",
-    "lint": "eslint app/**"
+    "lint": "eslint app/**/*.js"
   },
   "keywords": [
     "winter",
@@ -71,20 +71,13 @@
       }
     },
     "rules": {
-      "arrow-parens": [
-        "error",
-        "always"
-      ],
-      "arrow-body-style": [
-        2,
-        "as-needed"
-      ],
-      "comma-dangle": [
-        2,
-        "always-multiline"
-      ],
-      "indent": ["error", 4],
+      "arrow-parens": ["error", "always"],
+      "arrow-body-style": [2, "as-needed"],
+      "comma-dangle": [2, "always-multiline"],
+      "indent": 0,
       "linebreak-style": ["error", "windows"],
+      "no-tabs": 0,
+      "no-param-reassign": ["error", {"props": false}],
 
       "import/imports-first": 0,
       "import/newline-after-import": 0,

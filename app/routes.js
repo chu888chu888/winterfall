@@ -1,16 +1,14 @@
 /**
  * Copyright (c) 2016-present, ecidi.
  * All rights reserved.
- * 
+ *
  * This source code is licensed under the GPL-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
- * 
+ *
  * routes.js 整个应用的路径配置
  */
 
 import { getAsyncInjectors } from './Utils/asyncInjectors';
-import { persistStore, purgeStoredState } from 'redux-persist';
-import localForage from 'localForage';
 
 const errorLoading = (err) => {
 	console.error('动态页面加载失败！', err);
@@ -24,7 +22,7 @@ export default function createRoutes(store) {
 	// 异步注入
 	const {
 		injectReducer,
-		injectSagas
+		injectSagas,
 	} = getAsyncInjectors(store);
 
 	// 为解决数据持久化之后，
@@ -59,7 +57,7 @@ export default function createRoutes(store) {
 			const importModules = Promise.all([
 				System.import('Pages/FeaturePage'),
 			]);
-			
+
 			const renderRoute = loadModule(cb);
 
 			importModules.then(([component]) => {
