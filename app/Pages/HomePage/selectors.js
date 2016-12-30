@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  * Reselect 高效地获取store里的数据。
- * eg: 
+ * eg:
  * const mySelector = createSelector(
  *     state => state.values.value1,
  *     state => state.values.value2,
