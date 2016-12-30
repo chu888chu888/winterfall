@@ -34,7 +34,7 @@ import LoadingIndicator from 'Components/LoadingIndicator';
 import styles from './styles.css';
 
 
-const winter2 = require("./images/winter2.png");
+const winter2 = require('./images/winter2.png');
 export class HomePage extends React.Component {
 	constructor(props) {
         super(props);
@@ -91,7 +91,7 @@ export class HomePage extends React.Component {
 						<h2 className={styles.background}>我是背景图</h2>
 						<div className={styles.left}>
 							真的图片img：
-							<img src={winter2} alt="我是真图，上面是背景图！"/>
+							<img src={winter2} alt="我是真图，上面是背景图！" />
 						</div>
 					</section>
 					<section className={styles.textSection}>
@@ -101,13 +101,13 @@ export class HomePage extends React.Component {
 						<form className={styles['username-form']} onSubmit={this.onSubmitForm}>
 							<label htmlFor="username">
 								展示 <input
-										id="username"
-										className={styles.input}
-										type="text"
-										placeholder="帐户名"
-										value={this.state.username || this.props.username}
-										onChange={this.onChangeUsername}
-									/> 的Github项目库
+									id="username"
+									className={styles.input}
+									type="text"
+									placeholder="帐户名"
+									value={this.state.username || this.props.username}
+									onChange={this.onChangeUsername}
+								/> 的Github项目库
 							</label>
 						</form>
 						{mainContent}

@@ -4,7 +4,7 @@
  *
  * This source code is licensed under the GPL-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
- * 
+ *
  * FeaturePage
  */
 
@@ -12,9 +12,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import Helmet from 'react-helmet';
-
-/* reselects & actions */
-import { purgeUsername } from 'Pages/BasePage/actions';
 
 /* components */
 import Button from 'Components/Button';
@@ -34,7 +31,7 @@ export class FeaturePage extends React.Component {
 	render() {
 		return (
 			<div>
-				<Helmet title="当前是第二页"/>
+				<Helmet title="当前是第二页" />
 				<h1>
 					当前是第二页
 				</h1>

@@ -5,7 +5,7 @@
  * All rights reserved.
  *
  * This source code is licensed under the GPL-2.0 license found in the
- * LICENSE file in the root directory of this source tree. 
+ * LICENSE file in the root directory of this source tree.
  */
 
 import React from 'react';
@@ -19,11 +19,6 @@ import IssueIcon from 'Components/IssueIcon';
 import styles from './styles.css';
 
 export class RepoListItem extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const item = this.props.item;
         let nameprefix = '';
@@ -36,7 +31,7 @@ export class RepoListItem extends React.Component {
         // 将github项目内容组合在一起
         const content = (
             <div className={styles['link-wrapper']}>
-                <a
+                <a 
                     className={styles['link-repo']}
                     href={item.html_url}
                     target="_blank"

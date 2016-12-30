@@ -4,7 +4,7 @@
  *
  * This source code is licensed under the GPL-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
- * 
+ *
  * Actions
  */
 
@@ -14,12 +14,12 @@ import {
 	LOAD_REPOS_ERROR,
 } from './actionTypes';
 
-//<: =======================
+// <: =======================
 // 用户github项目数据
 export function loadRepos(username) {
 	return {
 		type: LOAD_REPOS,
-		username
+		username,
 	};
 }
 
