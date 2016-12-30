@@ -3,7 +3,7 @@
  * All rights reserved.
  *
  * This source code is licensed under the GPL-2.0 license found in the
- * LICENSE file in the root directory of this source tree. 
+ * LICENSE file in the root directory of this source tree.
  */
 
 import React from 'react';
@@ -11,38 +11,33 @@ import React from 'react';
 import styles from './styles.css';
 
 class List extends React.Component {
+	render() {
+		const ComponentToRender = this.props.component;
+		const items = this.props.items;
 
-    constructor(props) {
-        super(props);
-    }
+		let content = (<div></div>);
 
-    render() {
-        const ComponentToRender = this.props.component;
-        const items = this.props.items;
+		if (items) {
+			content = items.map((item, index) => (
+				<ComponentToRender key={`item-${index}`} item={item} />
+			));
+		} else {
+			content = (<ComponentToRender />);
+		}
 
-        let content = (<div></div>);
-
-        if (items) {
-            content = items.map((item, index) => (
-                <ComponentToRender key={`item-${index}`} item={item} />
-            ));
-        } else {
-            content = (<ComponentToRender />);
-        }
-
-        return (
-            <div className={styles['list-wrapper']}>
-                <ul className={styles.list}>
-                    {content}
-                </ul>
-            </div>
-        );
-    }
+		return (
+			<div className={styles['list-wrapper']}>
+				<ul className={styles.list}>
+					{content}
+				</ul>
+			</div>
+		);
+	}
 }
 
 List.propTypes = {
-    component: React.PropTypes.func.isRequired,
-    items: React.PropTypes.array,
+	component: React.PropTypes.func.isRequired,
+	items: React.PropTypes.array,
 };
 
 export default List;
