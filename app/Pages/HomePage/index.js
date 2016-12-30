@@ -13,7 +13,6 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import Helmet from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
-import _ from 'lodash';
 
 /* reselects & actions */
 import {
@@ -34,6 +33,8 @@ import LoadingIndicator from 'Components/LoadingIndicator';
 /* styles */
 import styles from './styles.css';
 
+
+const winter2 = require("./images/winter2.png");
 export class HomePage extends React.Component {
 	constructor(props) {
         super(props);
@@ -43,29 +44,22 @@ export class HomePage extends React.Component {
     }
 
 	componentDidMount() {
-		// 如果store里面的username有效则初始化内部username
-		let username = this.props.username;
-		if (username) {
-			this.setState({
-				username
-			});
-		}
 	}
-
-	openFeaturesPage = () => {
-		this.props.changeRoute('/features');
-	};
 
 	onChangeUsername = (evt) => {
 		this.setState({
-			username: evt.target.value
+			username: evt.target.value,
 		});
 	};
 
 	onSubmitForm = (evt) => {
 		if (evt !== undefined && evt.preventDefault) evt.preventDefault();
 		this.props.submitForm(this.state.username);
-	}
+	};
+
+	openFeaturesPage = () => {
+		this.props.changeRoute('/features');
+	};
 
 	render() {
 		let mainContent = null;
@@ -86,7 +80,7 @@ export class HomePage extends React.Component {
 
 		return (
 			<article>
-				<Helmet title="首页"/>
+				<Helmet title="首页" />
 				<div>
 					<section className={`${styles.textSection}`}>
 						<h1>
@@ -97,7 +91,7 @@ export class HomePage extends React.Component {
 						<h2 className={styles.background}>我是背景图</h2>
 						<div className={styles.left}>
 							真的图片img：
-							<img src={require("./images/winter2.png")} alt="我是真图，上面是背景图！"/>
+							<img src={winter2} alt="我是真图，上面是背景图！"/>
 						</div>
 					</section>
 					<section className={styles.textSection}>
@@ -111,7 +105,7 @@ export class HomePage extends React.Component {
 										className={styles.input}
 										type="text"
 										placeholder="帐户名"
-										value={this.state.username}
+										value={this.state.username || this.props.username}
 										onChange={this.onChangeUsername}
 									/> 的Github项目库
 							</label>

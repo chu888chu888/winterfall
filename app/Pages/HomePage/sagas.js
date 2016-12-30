@@ -6,15 +6,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { take, call, put, select, fork, cancel } from 'redux-saga/effects';
+import { take, call, put, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
-
-import {
-    selectRepos,
-    selectLoading,
-    selectError,
-} from './selectors';
-import { selectUsername } from 'Pages/BasePage/selectors';
 
 import { LOAD_REPOS } from './actionTypes';
 import { reposLoaded, repoLoadingError } from './actions';
@@ -42,7 +35,7 @@ export function* getRepos(username) {
 export function* getReposWatcher() {
     // saga会阻塞take，直到一个匹配的action被发起。
     while (true) {
-        let action = yield take(LOAD_REPOS);
+        const action = yield take(LOAD_REPOS);
         yield call(getRepos, action.username);
     }
 }
