@@ -129,10 +129,7 @@ HomePage.propTypes = {
 		React.PropTypes.object,
 		React.PropTypes.bool,
 	]),
-	username: React.PropTypes.oneOfType([
-		React.PropTypes.string,
-		React.PropTypes.bool,
-	]),
+	username: React.PropTypes.string,
 
 	changeRoute: React.PropTypes.func,
 	submitForm: React.PropTypes.func,

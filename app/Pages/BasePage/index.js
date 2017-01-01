@@ -30,7 +30,7 @@ class BasePage extends React.Component {
 	}
 }
 
-BasePage.defaultProps = {
+BasePage.propTypes = {
 	children: React.PropTypes.node,
 };
 

@@ -16,7 +16,7 @@ import { fromJS } from 'immutable';
 
 // 初始化本页面的state
 const initialState = fromJS({
-	username: false,
+	username: '',
 });
 
 function baseReducer(state = initialState, action) {
@@ -26,7 +26,7 @@ function baseReducer(state = initialState, action) {
 				.set('username', action.username);
 		case PURGE_USERNAME:
 			return state
-				.set('username', false);
+				.set('username', '');
 		default:
 			return state;
 	}
