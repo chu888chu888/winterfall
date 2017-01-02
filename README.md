@@ -1,41 +1,5 @@
-### v1.0.0修复
 
-1. 新增图片和背景图demo，通过require能通过js动态实现图片路径的变动。
-
-
-### 借鉴winter-simple的，敬请期待完整的文档。
-
-#### JavaScript编写规范
-
-详见 `package.json` 中 `eslintConfig` 的配置，详见[http://eslint.cn/](http://eslint.cn/docs/rules/)。
-
-具体涵盖如下几项：
-
-1. 要求箭头函数的参数使用圆括号
-
-2. 要求箭头函数体使用大括号
-
-3. 要求或禁止末尾逗号
-
-4. 强制使用一致的缩进
-
-5. 强制一行的最大长度
-
-6. 要求方法链中每个调用都有一个换行符
-
-7. 禁用 console
-
-8. 禁止在变量定义之前使用它们
-
-9. 要求使用模板字面量而非字符串连接
-
-10. 其他详见:
-  [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)、
-  [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)、
-  [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)、
-  [eslint-plugin-redux-saga](https://github.com/pke/eslint-plugin-redux-saga)
-
-### winterfall-simple  v 1.0.0
+### winterfall  v 1.1.0
 
 *—— Winter is coming*
 
@@ -54,19 +18,30 @@
 
     1. `HomePage/`：页面名字，在`routes.js`中引入；
 
+      - `images/`: 图片目录；
       - `index.js`：默认内容；
       - `styles.css`：默认样式；
-      - `fetch.js`：处理页面内部所有请求；
+      - `action.js`：所有的action函数（Redux）；
+      - `actionType.js`：所有的actionType定义（Redux）；
+      - `reducer.js`：所有store变动函数（Redux）；
+      - `sagas.js`：所有saga函数，主要是和fetch进行配合；
+      - `selectors.js`：所有从store中获取内容的函数；
 
   3. `Utils/`：工具模块；
 
     1. `request.js`：异步请求工具；
+    
+    2. `asyncInjectors`：异步注入saga和reducer工具；
 
   4. `app.js`：项目总入口；
 
   5. `index.html`：项目主页面模板；
 
   6. `routes.js`：项目所有路由，配置`url`；
+
+  7. `reducers.js`：项目基础`reducer`以及所有其他`reducer`的集合；
+
+  8. `store.js`：项目构建store，加入所有的依赖；
 
 2. `docs/`：存放开发过程中产生的开发文档；
 
@@ -106,11 +81,43 @@ $ npm run start
 
 打开游览器，地址栏输入`http://localhost:8080/home`；
 
+#### 项目检测
+
+```node
+$ npm run lint
+```
+
+引入 `eslint`-->[点击这里](http://eslint.cn/docs/rules/) 代码规范检测机制。
+
+检测内容详见 `package.json` 中 `eslintConfig` 的配置，具体涵盖如下几项：
+
+1. 箭头函数参数使用圆括号；
+2. 箭头函数体使用大括号；
+3. object 末尾加逗号；
+4. 使用一致的缩进（暂时除去了这项检测，无法配置成'tab'，请自觉使用 tab 完成缩进）；
+5. 使用一致的换行风格（暂定使用 windows 格式，如果是别的系统，请自行调整）；
+6. 禁止对 function 的参数进行重新赋值，参数的任何属性值变动不会报错；
+7. 禁用 console，出现 console 会出警告；
+8. 要求使用模板字面量而非字符串连接；
+9. 其他详见:
+  [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)、
+  [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)、
+  [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)、
+  [eslint-plugin-redux-saga](https://github.com/pke/eslint-plugin-redux-saga)
+
 #### License
 
 [GPL](https://tldrlegal.com/license/gnu-general-public-license-v2)
 
 
+#### 项目更新日志
+
+v1.1.0
+
+1. 新增图片和背景图demo，通过require能通过js动态实现图片路径的变动。
+2. 新增代码检测机制。
+3. 根据新的代码检测机制调整代码。
+4. 完成代码检测机制的文档内容。
 
 
 
