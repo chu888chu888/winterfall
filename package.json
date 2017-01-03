@@ -78,6 +78,7 @@
       "linebreak-style": ["error", "windows"],
       "no-tabs": 0,
       "no-param-reassign": ["error", {"props": false}],
+      "no-constant-condition": ["error", { "checkLoops": false }],
 
       "import/imports-first": 0,
       "import/newline-after-import": 0,
