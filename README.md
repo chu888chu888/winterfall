@@ -51,15 +51,17 @@
 
 4. `.gitignore`：屏蔽`git`版本控制路径；
 
-5. `package.json`：控制`npm`依赖包；
+5. `.eslintrc.json`: `ESLint` 配置文件；
 
-6. `README.md`：项目基础描述信息；
+6. `package.json`：控制`npm`依赖包；
 
-7. `webpack.base.config.js`：`webpack`基础配置信息；
+7. `README.md`：项目基础描述信息；
 
-8. `webpack.dev.config.js`：`webpack`开发配置信息；
+8. `webpack.base.config.js`：`webpack`基础配置信息；
 
-9. `webpack.prod.config.js`：`webpack`产品配置信息；
+9. `webpack.dev.config.js`：`webpack`开发配置信息；
+
+10. `webpack.prod.config.js`：`webpack`产品配置信息；
 
 #### 安装指令
 
