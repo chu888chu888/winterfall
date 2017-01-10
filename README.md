@@ -51,7 +51,7 @@
 
 4. `.gitignore`：屏蔽`git`版本控制路径；
 
-5. `.eslintrc.json`: `ESLint` 配置文件；
+5. `.eslintrc`: `ESLint` 配置文件；
 
 6. `package.json`：控制`npm`依赖包；
 
