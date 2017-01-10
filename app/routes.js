@@ -35,7 +35,7 @@ export default function createRoutes(store) {
 
 	return [{
 		path: '/home',
-		getComponent(nextState, cb) {
+		getComponent: (nextState, cb) => {
 			const importModules = Promise.all([
 				System.import('Pages/HomePage/sagas'),
 				System.import('Pages/HomePage'),
@@ -53,7 +53,7 @@ export default function createRoutes(store) {
 		},
 	}, {
 		path: '/features',
-		getComponent(nextState, cb) {
+		getComponent: (nextState, cb) => {
 			const importModules = Promise.all([
 				System.import('Pages/FeaturePage'),
 			]);

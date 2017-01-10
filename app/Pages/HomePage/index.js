@@ -150,7 +150,6 @@ export function mapDispatchToProps(dispatch) {
 		submitForm: (username) => {
 			dispatch(loadRepos(username));
 		},
-		dispatch,
 	};
 }
 

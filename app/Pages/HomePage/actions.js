@@ -19,21 +19,21 @@ import {
 export function loadRepos(username) {
 	return {
 		type: LOAD_REPOS,
-		username,
+		username: username,
 	};
 }
 
 export function reposLoaded(repos) {
 	return {
 		type: LOAD_REPOS_SUCCESS,
-		repos,
+		repos: repos,
 	};
 }
 
 export function repoLoadingError(error) {
 	return {
 		type: LOAD_REPOS_ERROR,
-		error,
+		error: error,
 	};
 }
 // =======================:>
