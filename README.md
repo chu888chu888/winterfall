@@ -91,21 +91,25 @@ $ npm run lint
 
 引入 `eslint`-->[点击这里](http://eslint.cn/docs/rules/) 代码规范检测机制。
 
-检测内容详见 `package.json` 中 `eslintConfig` 的配置，具体涵盖如下几项：
+检测内容详见 `.eslintrc` 的配置，具体涵盖如下几项：
 
 1. 箭头函数参数使用圆括号；
 2. 箭头函数体使用大括号；
 3. object 末尾加逗号；
 4. 使用一致的缩进（暂时除去了这项检测，无法配置成'tab'，请自觉使用 tab 完成缩进）；
-5. 使用一致的换行风格（暂定使用 windows 格式，如果是别的系统，请自行调整）；
-6. 禁止对 function 的参数进行重新赋值，参数的任何属性值变动不会报错；
-7. 禁用 console，出现 console 会出警告；
-8. 要求使用模板字面量而非字符串连接；
+5. 禁止对 function 的参数进行重新赋值，参数的任何属性值变动不会报错；
+6. 禁用 console，出现 console 会出警告；
+7. 要求使用模板字面量而非字符串连接；
+8. 要求对象字面量的简写或非简写一致性；
 9. 其他详见:
   [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)、
   [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)、
   [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)、
   [eslint-plugin-redux-saga](https://github.com/pke/eslint-plugin-redux-saga)
+
+#### Sublime ESlint 插件
+1. SublimeLinter
+2. SublimeLinter-contrib-eslint
 
 #### License
 
