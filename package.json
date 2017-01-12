@@ -1,6 +1,6 @@
 {
   "name": "winterfall",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "react 生态体系架构，结合 react、router、redux、saga 实现",
   "main": "index.html",
   "scripts": {
