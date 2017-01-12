@@ -35,10 +35,10 @@ module.exports = require('./webpack.base.config')({
     // css-loader 使css-module工作，模块当中能使用对象的方式来使用css
         // modules 符合css-module规范
         // importLoaders 后面连接的loader数量
-    cssLoaders: ExtractTextPlugin.extract(
-        'style-loader',
-        'css-loader?modules&importLoaders=1!postcss-loader'
-    ),
+    cssLoaders: ExtractTextPlugin.extract({
+        fallbackLoader: 'style-loader',
+        loader: 'css-loader?modules&importLoaders=1!postcss-loader',
+    }),
 
     postcssPlugins: [
         // 补充:focus伪类的功能
