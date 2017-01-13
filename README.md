@@ -1,5 +1,5 @@
 
-### winterfall  v 1.1.0
+### winterfall  v 2.0.0
 
 *—— Winter is coming*
 
@@ -118,7 +118,7 @@ $ npm run lint
 
 #### 项目更新日志
 
-v1.1.0
+v2.0.0
 
 1. 新增图片和背景图demo，通过require能通过js动态实现图片路径的变动。
 2. 新增代码检测机制。
