@@ -9,27 +9,36 @@
  */
 
 import {
-	CHANGE_USERNAME,
-	PURGE_USERNAME,
+	LOAD_REPOS,
+	LOAD_REPOS_SUCCESS,
+	LOAD_REPOS_ERROR,
 } from './actionTypes';
 import { fromJS } from 'immutable';
 
-// 初始化本页面的state
 const initialState = fromJS({
-	username: '',
+	loading: false,
+	error: false,
+	repos: false,
 });
 
-function baseReducer(state = initialState, action) {
+function indexReducer(state = initialState, action) {
 	switch (action.type) {
-		case CHANGE_USERNAME:
+		case LOAD_REPOS:
 			return state
-				.set('username', action.username);
-		case PURGE_USERNAME:
+				.set('loading', true)
+				.set('error', false)
+				.set('repos', false);
+		case LOAD_REPOS_SUCCESS:
 			return state
-				.set('username', '');
+				.set('repos', action.repos)
+				.set('loading', false);
+		case LOAD_REPOS_ERROR:
+			return state
+				.set('error', action.error)
+				.set('loading', false);
 		default:
 			return state;
 	}
 }
 
-export default baseReducer;
+export default indexReducer;

@@ -12,9 +12,6 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import 'sanitize.css/sanitize.css';
 
-/* components */
-import Footer from 'Components/Footer';
-
 /* styles */
 import styles from './styles.css';
 
@@ -24,7 +21,6 @@ class BasePage extends React.Component {
 			<div className={styles.wrapper}>
 				<Helmet titleTemplate="%s - Ecidi" />
 				{React.Children.toArray(this.props.children)}
-				<Footer />
 			</div>
 		);
 	}

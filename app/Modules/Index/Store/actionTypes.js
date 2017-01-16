@@ -11,5 +11,7 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourPage/YOUR_ACTION_CONSTANT';
  */
 
-export const CHANGE_USERNAME = 'winterfall/Base/CHANGE_USERNAME';
-export const PURGE_USERNAME = 'winterfall/Base/PURGE_USERNAME';
+export const LOAD_REPOS = 'winterfall/Index/LOAD_REPOS';
+export const LOAD_REPOS_SUCCESS = 'winterfall/Index/LOAD_REPOS_SUCCESS';
+export const LOAD_REPOS_ERROR = 'winterfall/Index/LOAD_REPOS_ERROR';
+

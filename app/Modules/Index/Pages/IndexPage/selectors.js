@@ -16,33 +16,26 @@
 
 import { createSelector } from 'reselect';
 
-const selectGlobal = () => (state) => state.get('global');
+const selectHome = () => (state) => state.get('index');
 
-const selectUsername = () => createSelector(
-	selectGlobal(),
-	(globalState) => globalState.get('username')
+const selectRepos = () => createSelector(
+	selectHome(),
+	(homeState) => homeState.get('repos')
 );
 
-const selectLocationState = () => {
-	let prevRoutingState;
-	let prevRoutingStateJS;
+const selectLoading = () => createSelector(
+	selectHome(),
+	(homeState) => homeState.get('loading')
+);
 
-	return (state) => {
-		// 从store中获取route的值判断是否发生变动。
-		// 体现到syncHistoryWithStore中，当history变化时会引发LOCATION_CHANGE action。
-		const routingState = state.get('route');
-
-		if (!routingState.equals(prevRoutingState)) {
-			prevRoutingState = routingState;
-			prevRoutingStateJS = routingState.toJS();
-		}
-
-		return prevRoutingStateJS;
-	};
-};
+const selectError = () => createSelector(
+	selectHome(),
+	(homeState) => homeState.get('error')
+);
 
 export {
-	selectGlobal,
-	selectUsername,
-	selectLocationState,
+	selectHome,
+	selectRepos,
+	selectLoading,
+	selectError,
 };

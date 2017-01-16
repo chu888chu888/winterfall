@@ -1,36 +1,41 @@
-html,
-body {
-    height: 100%;
-    width: 100%;
+.text-section {
+	margin: 3em auto;
 }
 
-body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+.textS-section:first-child {
+	margin-top: 0;
 }
 
-body.fontLoaded {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+.centered {
+	text-align: center;
+}
+.left{
+	text-align: left;
 }
 
-:global(#app) {
-    background-color: #FAFAFA;
-    min-height: 100%;
-    min-width: 100%;
+p,
+label {
+	font-family: Georgia, Times, 'Times New Roman', serif;
+	line-height: 1.5em;
 }
 
-.wrapper {
-    max-width: calc(768px + 16px * 2);
-    margin: 0 auto;
-    display: flex;
-    min-height: 100%;
-    padding: 0 16px;
-    flex-direction: column;
+.link {
+	text-decoration: none;
 }
 
-.section {
-    margin-top: 20px;
+.username-form {
+	margin-bottom: 1em;
+	color: blue;
 }
 
-.language {
-    float: left;
+.input {
+	outline: none;
+	border-bottom: 1px dotted #999;
+}
+
+.background{
+	width: 344px;
+	height: 167px;
+	background-image: url(../../Images/winter2.png);
+	text-align: left;
 }

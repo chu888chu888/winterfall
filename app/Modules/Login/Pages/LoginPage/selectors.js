@@ -1,48 +1,50 @@
 /**
- * Copyright (c) 2016-present, ecidi.
- * All rights reserved.
+ * 全局state selectors
  *
- * This source code is licensed under the GPL-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * Reselect 高效地获取store里的数据。
- * eg:
- * const mySelector = createSelector(
- *     state => state.values.value1,
- *     state => state.values.value2,
- *     (value1, value2) => value1 + value2
- * )
+ * Reselect 库可以创建可记忆的(Memoized)、可组合的 selector 函数。
+ * Reselect selectors 可以用来高效地计算 Redux store 里的衍生数据。
  */
 
 import { createSelector } from 'reselect';
 
-const selectGlobal = () => (state) => state.get('global');
+const selectDefault = () => (state) => state.get('login');
 
-const selectUsername = () => createSelector(
-	selectGlobal(),
+const selectUserInfo = () => createSelector(
+	selectDefault(),
+	(globalState) => globalState.get('userInfo')
+);
+
+const selectUserName = () => createSelector(
+	selectDefault(),
 	(globalState) => globalState.get('username')
 );
 
-const selectLocationState = () => {
-	let prevRoutingState;
-	let prevRoutingStateJS;
+const selectPassword = () => createSelector(
+	selectDefault(),
+	(globalState) => globalState.get('password')
+);
 
-	return (state) => {
-		// 从store中获取route的值判断是否发生变动。
-		// 体现到syncHistoryWithStore中，当history变化时会引发LOCATION_CHANGE action。
-		const routingState = state.get('route');
+const selectLoading = () => createSelector(
+	selectDefault(),
+	(globalState) => globalState.get('loading')
+);
 
-		if (!routingState.equals(prevRoutingState)) {
-			prevRoutingState = routingState;
-			prevRoutingStateJS = routingState.toJS();
-		}
+const selectLoginState = () => createSelector(
+	selectDefault(),
+	(globalState) => globalState.get('islogin')
+);
 
-		return prevRoutingStateJS;
-	};
-};
+const selectOpenBasePage = () => createSelector(
+	selectDefault(),
+	(globalState) => globalState.get('gotobase')
+);
 
 export {
-	selectGlobal,
-	selectUsername,
-	selectLocationState,
+	selectDefault,
+	selectUserInfo,
+	selectUserName,
+	selectPassword,
+	selectLoading,
+	selectLoginState,
+	selectOpenBasePage,
 };

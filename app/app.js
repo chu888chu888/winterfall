@@ -35,13 +35,13 @@ if (window.devToolsExtension) {
 // 让store和history结合在一起的另一部分，加强版的history。
 // 使用syncHistoryWithStore关联browserHistory和store.routing。
 // 允许将history中接受到的变化反应到state中去。
-import { selectLocationState } from './Modules/Load/selectors';
+import { selectLocationState } from 'Modules/Base/selectors';
 const history = syncHistoryWithStore(browserHistory, store, {
 	selectLocationState: selectLocationState(),
 });
 
 // 建立router，包装所有的Routes到BasePage组件中。
-import BasePage from './Modules/Base/BasePage';
+import BasePage from 'Modules/Base';
 import createRoutes from './routes';
 const rootRoute = {
 	component: BasePage,

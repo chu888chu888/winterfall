@@ -15,6 +15,7 @@ import Helmet from 'react-helmet';
 
 /* components */
 import Button from 'Components/Button';
+import Footer from 'Components/Footer';
 
 /* styles */
 import styles from './styles.css';
@@ -25,7 +26,7 @@ export class FeaturePage extends React.Component {
 	}
 
 	openHomePage = () => {
-		this.props.dispatch(push('/home'));
+		this.props.dispatch(push('/index'));
 	};
 
 	render() {
@@ -46,6 +47,7 @@ export class FeaturePage extends React.Component {
 					</li>
 				</ul>
 				<Button handleRoute={this.openHomePage}>首页</Button>
+				<Footer />
 			</div>
 		);
 	}

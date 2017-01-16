@@ -4,14 +4,14 @@
  */
 
 import React from 'react';
-import Helmet from 'react-helmet';
+import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
+import { createStructuredSelector } from 'reselect';
 import 'sanitize.css/sanitize.css';
+import Helmet from 'react-helmet';
 
 import 'antd/dist/antd.css';
 import { Progress } from 'antd';
-
-/* components */
-import Footer from 'Components/Footer';
 
 /* styles */
 import styles from './styles.css';
@@ -21,29 +21,55 @@ class LoadPage extends React.Component {
         super(props);
         this.state = {
             progress: 0,
+            interval: null,
         };
     }
 
-    componentDidMount() {
-    	for (let i = 1; i <= 100; i++) {
-    		setTimeout( function(){
-    			this.state({
-    				progress: i,
-    			});
-    		}.bind(this),1000);
-    	};
-	}
+    componentWillMount() {
+        const tmpInterval = setInterval(() => {
+            const progress = this.state.progress;
+            if (progress >= 100) {
+                clearInterval(this.state.interval);
+                this.props.changeRoute('/index');
+                return;
+            }
+            this.setState({
+                progress: (progress + 1),
+            });
+        }, 100);
+        this.setState({
+            interval: tmpInterval,
+        });
+    }
 
 	render() {
-		let progress = this.state.progress;
+		const progress = this.state.progress;
 		return (
 			<div className={styles.wrapper}>
 				<Helmet titleTemplate="%s - Ecidi" />
-				<Progress type="circle" percent={progress} />
-				<Footer />
+				<Progress status="active" percent={progress} />
 			</div>
 		);
 	}
 }
 
-export default LoadPage;
+LoadPage.propTypes = {
+    changeRoute: React.PropTypes.func,
+};
+
+// 任何时候，只要 Redux store 发生改变，mapStateToProps 函数就会被调用。
+const mapStateToProps = createStructuredSelector({
+});
+
+// 如果你省略这个 mapDispatchToProps 参数，默认情况下，dispatch 会注入到你的组件 props 中。
+export function mapDispatchToProps(dispatch) {
+    return {
+        changeRoute: (url) => dispatch(push(url)),
+    };
+}
+
+// react-redux 的使用方式
+// connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
+// 连接 React 组件与 Redux store。
+export default connect(mapStateToProps, mapDispatchToProps)(LoadPage);
+

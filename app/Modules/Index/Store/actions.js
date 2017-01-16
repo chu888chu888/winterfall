@@ -9,20 +9,31 @@
  */
 
 import {
-	CHANGE_USERNAME,
-	PURGE_USERNAME,
+	LOAD_REPOS,
+	LOAD_REPOS_SUCCESS,
+	LOAD_REPOS_ERROR,
 } from './actionTypes';
 
-export function changeUsername(username) {
+// <: =======================
+// 用户github项目数据
+export function loadRepos(username) {
 	return {
-		type: CHANGE_USERNAME,
+		type: LOAD_REPOS,
 		username: username,
 	};
 }
 
-export function purgeUsername() {
+export function reposLoaded(repos) {
 	return {
-		type: PURGE_USERNAME,
+		type: LOAD_REPOS_SUCCESS,
+		repos: repos,
 	};
 }
 
+export function repoLoadingError(error) {
+	return {
+		type: LOAD_REPOS_ERROR,
+		error: error,
+	};
+}
+// =======================:>

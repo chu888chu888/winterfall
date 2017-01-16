@@ -28,11 +28,6 @@ export default function createRoutes(store) {
 	// 为解决数据持久化之后，
 	// 刷新页面导致初始化的redux store和缓存的redux store结构不对应问题。
 	Promise.all([
-		System.import('Modules/Load/reducer'),
-	]).then(([reducer]) => {
-		injectReducer('load', reducer.default);
-	});
-	Promise.all([
 		System.import('Modules/Login/Store/reducer'),
 	]).then(([reducer]) => {
 		injectReducer('login', reducer.default);
@@ -42,14 +37,9 @@ export default function createRoutes(store) {
 	]).then(([reducer]) => {
 		injectReducer('index', reducer.default);
 	});
-	Promise.all([
-		System.import('Modules/Task/Store/reducer'),
-	]).then(([reducer]) => {
-		injectReducer('task', reducer.default);
-	});
 
 	return [{
-		path: '/load',
+		path: '/',
 		getComponent: (nextState, cb) => {
 			const importModules = Promise.all([
 				System.import('Modules/Load'),
@@ -57,9 +47,7 @@ export default function createRoutes(store) {
 
 			const renderRoute = loadModule(cb);
 
-			importModules.then(([sagas, component]) => {
-				injectSagas(sagas.default);
-
+			importModules.then(([component]) => {
 				renderRoute(component);
 			});
 
@@ -69,14 +57,12 @@ export default function createRoutes(store) {
 		path: '/login',
 		getComponent: (nextState, cb) => {
 			const importModules = Promise.all([
-				System.import('Modules/Pages/LoginPage'),
+				System.import('Modules/Login/Pages/LoginPage'),
 			]);
 
 			const renderRoute = loadModule(cb);
 
-			importModules.then(([sagas, component]) => {
-				injectSagas(sagas.default);
-
+			importModules.then(([component]) => {
 				renderRoute(component);
 			});
 
@@ -86,14 +72,12 @@ export default function createRoutes(store) {
 		path: '/logout',
 		getComponent: (nextState, cb) => {
 			const importModules = Promise.all([
-				System.import('Modules/Pages/LogoutPage'),
+				System.import('Modules/Login/Pages/LogoutPage'),
 			]);
 
 			const renderRoute = loadModule(cb);
 
-			importModules.then(([sagas, component]) => {
-				injectSagas(sagas.default);
-
+			importModules.then(([component]) => {
 				renderRoute(component);
 			});
 
@@ -103,15 +87,14 @@ export default function createRoutes(store) {
 		path: '/index',
 		getComponent: (nextState, cb) => {
 			const importModules = Promise.all([
-				System.import('Modules/Store/sagas'),
-				System.import('Modules/Pages/IndexPage'),
+				System.import('Modules/Index/Store/sagas'),
+				System.import('Modules/Index/Pages/IndexPage'),
 			]);
 
 			const renderRoute = loadModule(cb);
 
 			importModules.then(([sagas, component]) => {
 				injectSagas(sagas.default);
-
 				renderRoute(component);
 			});
 
@@ -121,7 +104,7 @@ export default function createRoutes(store) {
 		path: '/features',
 		getComponent: (nextState, cb) => {
 			const importModules = Promise.all([
-				System.import('Modules/Pages/FeaturePage'),
+				System.import('Modules/Task/Pages/FeaturePage'),
 			]);
 
 			const renderRoute = loadModule(cb);

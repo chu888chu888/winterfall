@@ -1,28 +1,47 @@
-/**
- * Copyright (c) 2016-present, ecidi.
- * All rights reserved.
- *
- * This source code is licensed under the GPL-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * Actions
- */
-
 import {
 	CHANGE_USERNAME,
-	PURGE_USERNAME,
+	CHANGE_PASSWORD,
+	LOGIN,
+	LOGIN_SUCCESS,
+	LOGIN_ERROR,
 } from './actionTypes';
 
-export function changeUsername(username) {
+export function changeUserName(username) {
 	return {
 		type: CHANGE_USERNAME,
 		username: username,
 	};
 }
 
-export function purgeUsername() {
+export function changePassword(password) {
 	return {
-		type: PURGE_USERNAME,
+		type: CHANGE_PASSWORD,
+		password: password,
 	};
 }
 
+export function login() {
+	return {
+		type: LOGIN,
+	};
+}
+
+/**
+ * 验证通过
+ */
+export function loginSuccess(repos) {
+	return {
+		type: LOGIN_SUCCESS,
+		repos: repos,
+	};
+}
+
+/**
+ * 验证完成，出错
+ */
+export function loginError(error) {
+	return {
+		type: LOGIN_ERROR,
+		error: error,
+	};
+}
