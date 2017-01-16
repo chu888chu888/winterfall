@@ -6,7 +6,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development node server",
     "build": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js --color -p --progress",
-    "lint": "eslint --color app/**/*.js"
+    "lint": "eslint --color app/**/*.js",
+    "fix": "eslint --fix app/**/*.js"
   },
   "keywords": [
     "winter",
