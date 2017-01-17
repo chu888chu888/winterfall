@@ -14,19 +14,25 @@
       - `index.js`：默认内容；
       - `styles.css`：默认样式；
 
-  2. `Pages/`：页面模块，可通过`url`单独导航到；
+  2. `Modules/`：页面大模块，包含几大业务模块;
 
-    1. `HomePage/`：页面名字，在`routes.js`中引入；
+    1. `Index/`：首页模块
 
-      - `images/`: 图片目录；
-      - `index.js`：默认内容；
-      - `styles.css`：默认样式；
-      - `action.js`：所有的action函数（Redux）；
-      - `actionType.js`：所有的actionType定义（Redux）；
-      - `reducer.js`：所有store变动函数（Redux）；
-      - `sagas.js`：所有saga函数，主要是和fetch进行配合；
-      - `selectors.js`：所有从store中获取内容的函数；
+      - `Images/`: 图片目录；
 
+      - `Pages/`: 页面子模块，可通过`url`单独导航到；
+
+        - `index.js`：默认内容；
+        - `styles.css`：默认样式；
+        - `selectors.js`：所有从store中获取内容的函数；
+
+      - `Store`: 数据流页面，数据存储及流转等过程；
+      
+        - `action.js`：所有的action函数（Redux）；
+        - `actionType.js`：所有的actionType定义（Redux）；
+        - `reducer.js`：所有store变动函数（Redux）；
+        - `sagas.js`：所有saga函数，主要是和fetch进行配合；
+      
   3. `Utils/`：工具模块；
 
     1. `request.js`：异步请求工具；
@@ -81,7 +87,7 @@ $ npm install
 $ npm run start
 ```
 
-打开游览器，地址栏输入`http://localhost:8080/home`；
+打开游览器，地址栏输入`http://localhost:8080`；
 
 #### 项目检测
 
