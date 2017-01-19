@@ -1,41 +1,64 @@
-.text-section {
-	margin: 3em auto;
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-.textS-section:first-child {
-	margin-top: 0;
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #666;
 }
 
-.centered {
-	text-align: center;
-}
-.left{
-	text-align: left;
+p,h1,h2,h3,h4,h5,h6 {
+    margin: 20px 0 0 0 ;
 }
 
-p,
-label {
-	font-family: Georgia, Times, 'Times New Roman', serif;
-	line-height: 1.5em;
+.wrapper {
+    height: 100px;
+    width: 100%;
 }
 
-.link {
-	text-decoration: none;
+.header {
+    position: fixed;
+    width: 100%;
+
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+    
+    z-index: 9;
+    background: white;
 }
 
-.username-form {
-	margin-bottom: 1em;
-	color: blue;
+.row-container {
+    max-width: 960px;
+    margin: 0 auto;
 }
 
-.input {
-	outline: none;
-	border-bottom: 1px dotted #999;
+.route-body {
+    padding-top: 3rem;
+    margin-bottom: 0;
 }
 
-.background{
-	width: 344px;
-	height: 167px;
-	background-image: url(../../Images/winter2.png);
-	text-align: left;
+.row-2 {
+    display: flex;
+    margin-right: 0.75rem;
+    margin-left: 0.75rem;
+    font-size: 2rem;
 }
+
+.nav-title a{
+    text-decoration: none;
+    color: #666;
+    background-color: transparent;
+    position: relative;
+    margin-left: 1.5rem;
+    width: 75px;
+    display: inline-block;
+}
+
+

@@ -36,7 +36,7 @@ class LoadPage extends React.Component {
             this.setState({
                 progress: (progress + 1),
             });
-        }, 100);
+        }, 50);
         this.setState({
             interval: tmpInterval,
         });
@@ -45,7 +45,7 @@ class LoadPage extends React.Component {
 	render() {
 		const progress = this.state.progress;
 		return (
-			<div className={styles.wrapper}>
+			<div className={styles.load}>
 				<Helmet titleTemplate="%s - Ecidi" />
 				<Progress status="active" percent={progress} />
 			</div>

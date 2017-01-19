@@ -11,7 +11,7 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 
 import { LOAD_REPOS } from './actionTypes';
 import { reposLoaded, repoLoadingError } from './actions';
-import { changeUsername } from 'Modules/Base/actions';
+import { changeUsername } from 'Modules/Base/Store/actions';
 
 import request from 'Utils/request';
 

@@ -15,7 +15,7 @@
 import { fromJS } from 'immutable';
 import { combineReducers } from 'redux-immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import globalReducer from 'Modules/Base/reducer';
+import globalReducer from 'Modules/Base/Store/reducer';
 
 // routeReducer
 // 初始化redux store里的route

@@ -5,7 +5,7 @@
  * This source code is licensed under the GPL-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  *
- * IndexPage
+ * HomePage
  */
 
 import React from 'react';
@@ -17,7 +17,7 @@ import { createStructuredSelector } from 'reselect';
 /* styles */
 import styles from './styles.css';
 
-export class IndexPage extends React.Component {
+export class AboutPage extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
@@ -34,24 +34,16 @@ export class IndexPage extends React.Component {
 	render() {
 		return (
 			<article>
-				<Helmet title="Index" />
-				<div className={styles.wrapper}>
-					<header className={styles.header}>
-						<div className={styles['row-container']}>
-							<div className={styles['row-2']}>
-								<nav className={styles['nav-title']}>
-									<a href="/index">Ecidi</a>
-									<a href="/about">About</a>
-								</nav>
-							</div>
-						</div>
-					</header>
-				</div>
-				{React.Children.toArray(this.props.children)}
+				<Helmet title="About" />
 				<div className={styles['route-body']}>
 					<div className={styles['row-container']}>
 						<div className={styles['row-2']}>
-							<h6>浙江华东数字工程技术有限公司</h6>
+							<p>
+								<h3>Ecidi数字化研发部</h3>
+								<h5>研发部托管代码部署在
+									<a href="https://github.com/ecidi">GitHub</a>
+								</h5>
+							</p>
 						</div>
 					</div>
 				</div>
@@ -60,9 +52,8 @@ export class IndexPage extends React.Component {
 	}
 }
 
-IndexPage.propTypes = {
+AboutPage.propTypes = {
 	changeRoute: React.PropTypes.func,
-	children: React.PropTypes.node,
 };
 
 // 任何时候，只要 Redux store 发生改变，mapStateToProps 函数就会被调用。
@@ -79,4 +70,4 @@ export function mapDispatchToProps(dispatch) {
 // react-redux 的使用方式
 // connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
 // 连接 React 组件与 Redux store。
-export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);
+export default connect(mapStateToProps, mapDispatchToProps)(AboutPage);

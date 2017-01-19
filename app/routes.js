@@ -42,7 +42,7 @@ export default function createRoutes(store) {
 		path: '/',
 		getComponent: (nextState, cb) => {
 			const importModules = Promise.all([
-				System.import('Modules/Load'),
+				System.import('Modules/Load/Pages/LoadPage'),
 			]);
 
 			const renderRoute = loadModule(cb);
@@ -57,32 +57,37 @@ export default function createRoutes(store) {
 		path: '/login',
 		getComponent: (nextState, cb) => {
 			const importModules = Promise.all([
+				System.import('Modules/Login/Store/sagas'),
 				System.import('Modules/Login/Pages/LoginPage'),
 			]);
 
 			const renderRoute = loadModule(cb);
 
-			importModules.then(([component]) => {
+			importModules.then(([sagas, component]) => {
+				injectSagas(sagas.default);
 				renderRoute(component);
 			});
 
 			importModules.catch(errorLoading);
 		},
-	}, {
-		path: '/logout',
-		getComponent: (nextState, cb) => {
-			const importModules = Promise.all([
-				System.import('Modules/Login/Pages/LogoutPage'),
-			]);
+		childRoutes: [
+		{
+			path: '/logout',
+			name: 'logout',
+			getComponent: (nextState, cb) => {
+				const importModules = Promise.all([
+					System.import('Modules/Login/Pages/LogoutPage'),
+				]);
 
-			const renderRoute = loadModule(cb);
+				const renderRoute = loadModule(cb);
 
-			importModules.then(([component]) => {
-				renderRoute(component);
-			});
+				importModules.then(([component]) => {
+					renderRoute(component);
+				});
 
-			importModules.catch(errorLoading);
-		},
+				importModules.catch(errorLoading);
+			},
+		}],
 	}, {
 		path: '/index',
 		getComponent: (nextState, cb) => {
@@ -100,20 +105,40 @@ export default function createRoutes(store) {
 
 			importModules.catch(errorLoading);
 		},
-	}, {
-		path: '/features',
-		getComponent: (nextState, cb) => {
-			const importModules = Promise.all([
-				System.import('Modules/Task/Pages/FeaturePage'),
-			]);
+		indexRoute: {
+			path: '/readme',
+			name: 'readme',
+			getComponent: (nextState, cb) => {
+				const importModules = Promise.all([
+					System.import('Modules/Index/Pages/ReadmePage'),
+				]);
 
-			const renderRoute = loadModule(cb);
+				const renderRoute = loadModule(cb);
 
-			importModules.then(([component]) => {
-				renderRoute(component);
-			});
+				importModules.then(([component]) => {
+					renderRoute(component);
+				});
 
-			importModules.catch(errorLoading);
+				importModules.catch(errorLoading);
+			},
 		},
+		childRoutes: [
+		{
+			path: '/about',
+			name: 'about',
+			getComponent: (nextState, cb) => {
+				const importModules = Promise.all([
+					System.import('Modules/Index/Pages/AboutPage'),
+				]);
+
+				const renderRoute = loadModule(cb);
+
+				importModules.then(([component]) => {
+					renderRoute(component);
+				});
+
+				importModules.catch(errorLoading);
+			},
+		}],
 	}];
 }

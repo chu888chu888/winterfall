@@ -9,11 +9,8 @@ import { push } from 'react-router-redux';
 import Helmet from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 
-import { message } from 'antd';
-import 'antd/dist/antd.css';
-
 import { changeUserName, changePassword, login } from '../../Store/actions';
-import { selectUserName, selectPassword, selectLoginState } from './selectors';
+import { selectLoginState } from './selectors';
 
 import styles from './styles.css';
 
@@ -21,10 +18,6 @@ export class LoginPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onKeyup = this.onKeyup.bind(this);// 声明函数onKeyup
-		message.config({
-			top: 100,
-			duration: 2,
-		});
 	}
 
 	componentDidMount() {
@@ -61,14 +54,10 @@ export class LoginPage extends React.Component {
 		logInfo.username = username.value;
 		logInfo.password = password.value;
 		// 判断一下用户和密码是否补全
-		if (this.props.username === '' || this.props.password === '') {
-			message.error('请输入用户和密码');
-		} else {
-			this.props.changeUserName(logInfo.username);
-			this.props.changePassword(logInfo.password);
-			if (this.props.login) {
-				this.props.login();
-			}
+		this.props.changeUserName(logInfo.username);
+		this.props.changePassword(logInfo.password);
+		if (this.props.login) {
+			this.props.login();
 		}
 	}
 	/**
@@ -78,7 +67,6 @@ export class LoginPage extends React.Component {
 	openRoute = (route) => {
 		this.props.changeRoute(route);
 	};
-
 	/**
 	 * 改变路由到 '/'
 	 */
@@ -110,14 +98,10 @@ LoginPage.propTypes = {
 	changePassword: React.PropTypes.func,
 	login: React.PropTypes.func,
 	islogin: React.PropTypes.number,
-	username: React.PropTypes.string,
-	password: React.PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
 	islogin: selectLoginState(),
-	username: selectUserName(),
-	password: selectPassword(),
 });
 
 export function mapDispatchToProps(dispatch) {

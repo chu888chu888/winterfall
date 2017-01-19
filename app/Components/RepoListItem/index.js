@@ -12,7 +12,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { selectUsername } from 'Modules/Base/selectors';
+import { selectUsername } from 'Modules/Base/Pages/BasePage/selectors';
 import ListItem from 'Components/ListItem';
 import IssueIcon from 'Components/IssueIcon';
 
