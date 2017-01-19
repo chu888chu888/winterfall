@@ -5,69 +5,69 @@
 
 #### 目录结构
 
-1. `app/`：源代码根目录；
+1.  `app/`：源代码根目录；
 
-  1. `Components/`：功能性模块，无法通过`url`单独导航到；
+2.  `Components/`：功能性模块，无法通过`url`单独导航到；
 
     1. `Button/`：模块名字，可通过`import`方式导入到实际页面；
 
-      - `index.js`：默认内容；
-      - `styles.css`：默认样式；
+    - `index.js`：默认内容；
+    - `styles.css`：默认样式；
 
-  2. `Modules/`：页面大模块，包含几大业务模块;
+3.  `Modules/`：页面大模块，包含几大业务模块;
 
     1. `Index/`：首页模块
 
-      - `Images/`: 图片目录；
+    - `Images/`: 图片目录；
 
-      - `Pages/`: 页面子模块，可通过`url`单独导航到；
+    - `Pages/`: 页面子模块，可通过`url`单独导航到；
 
         - `index.js`：默认内容；
         - `styles.css`：默认样式；
         - `selectors.js`：所有从store中获取内容的函数；
 
-      - `Store`: 数据流页面，数据存储及流转等过程；
-      
+    - `Store`: 数据流页面，数据存储及流转等过程；
+
         - `action.js`：所有的action函数（Redux）；
         - `actionType.js`：所有的actionType定义（Redux）；
         - `reducer.js`：所有store变动函数（Redux）；
         - `sagas.js`：所有saga函数，主要是和fetch进行配合；
-      
-  3. `Utils/`：工具模块；
+
+4.  `Utils/`：工具模块；
 
     1. `request.js`：异步请求工具；
-    
+
     2. `asyncInjectors`：异步注入saga和reducer工具；
 
-  4. `app.js`：项目总入口；
+5.  `app.js`：项目总入口；
 
-  5. `index.html`：项目主页面模板；
+6.  `index.html`：项目主页面模板；
 
-  6. `routes.js`：项目所有路由，配置`url`；
+7.  `routes.js`：项目所有路由，配置`url`；
 
-  7. `reducers.js`：项目基础`reducer`以及所有其他`reducer`的集合；
+8.  `reducers.js`：项目基础`reducer`以及所有其他`reducer`的集合；
 
-  8. `store.js`：项目构建store，加入所有的依赖；
+9.  `store.js`：项目构建store，加入所有的依赖；
 
-2. `docs/`：存放开发过程中产生的开发文档；
+10.  `docs/`：存放开发过程中产生的开发文档；
 
-  1. `***.md`：描述信息的`markdown`文件；
+11.  `***.md`：描述信息的`markdown`文件；
 
-3. `server/`：`Node`服务器配置信息，用于本地研发；
+12.  `server/`：`Node`服务器配置信息，用于本地研发；
 
-4. `.gitignore`：屏蔽`git`版本控制路径；
+13.  `.gitignore`：屏蔽`git`版本控制路径；
 
-5. `.eslintrc`: `ESLint` 配置文件；
+14.  `.eslintrc`: `ESLint` 配置文件；
 
-6. `package.json`：控制`npm`依赖包；
+15.  `package.json`：控制`npm`依赖包；
 
-7. `README.md`：项目基础描述信息；
+16.  `README.md`：项目基础描述信息；
 
-8. `webpack.base.config.js`：`webpack`基础配置信息；
+17.  `webpack.base.config.js`：`webpack`基础配置信息；
 
-9. `webpack.dev.config.js`：`webpack`开发配置信息；
+18.  `webpack.dev.config.js`：`webpack`开发配置信息；
 
-10. `webpack.prod.config.js`：`webpack`产品配置信息；
+19.  `webpack.prod.config.js`：`webpack`产品配置信息；
 
 #### 安装指令
 
@@ -108,10 +108,10 @@ $ npm run lint
 7. 要求使用模板字面量而非字符串连接；
 8. 要求对象字面量的简写或非简写一致性；
 9. 其他详见:
-  [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)、
-  [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)、
-  [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)、
-  [eslint-plugin-redux-saga](https://github.com/pke/eslint-plugin-redux-saga)
+   [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)、
+   [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)、
+   [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)、
+   [eslint-plugin-redux-saga](https://github.com/pke/eslint-plugin-redux-saga)
 
 #### Sublime ESlint 插件
 1. SublimeLinter
@@ -126,11 +126,9 @@ $ npm run lint
 
 v2.0.0
 
-1. 新增图片和背景图demo，通过require能通过js动态实现图片路径的变动。
-2. 新增代码检测机制。
-3. 根据新的代码检测机制调整代码。
-4. 完成代码检测机制的文档内容。
+​    1.为加强暂存数据的有效管理，引入大模块的概念，将原有Page的方式修改为以模块的形式进行组织，具体方式参见目录结构Modules部分；
 
+​    2.Modules目录下包含Base、Load、Index等模块，Base是基础框架模块，Load是资源信息加载模块，Index是首页模块；
 
 
 
