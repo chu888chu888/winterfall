@@ -18,15 +18,16 @@
 
     1. `Index/`：首页模块
 
-    - `Images/`: 图片目录；
+      - `Images/`: 图片目录；
 
-    - `Pages/`: 页面子模块，可通过`url`单独导航到；
+      - `Pages/`: 页面子模块，可通过`url`单独导航到；
+        
+        - `IndexPage`:
+          - `index.js`：默认内容；
+          - `styles.css`：默认样式；
+          - `selectors.js`：所有从store中获取内容的函数；
 
-        - `index.js`：默认内容；
-        - `styles.css`：默认样式；
-        - `selectors.js`：所有从store中获取内容的函数；
-
-    - `Store`: 数据流页面，数据存储及流转等过程；
+      - `Store`: 数据流页面，数据存储及流转等过程；
 
         - `action.js`：所有的action函数（Redux）；
         - `actionType.js`：所有的actionType定义（Redux）；
@@ -128,7 +129,7 @@ v2.0.0
 
 ​    1.为加强暂存数据的有效管理，引入大模块的概念，将原有Page的方式修改为以模块的形式进行组织，具体方式参见目录结构Modules部分；
 
-​    2.Modules目录下包含Base、Load、Index等模块，Base是基础框架模块，Load是资源信息加载模块，Index是首页模块；
+​    2.Modules目录下包含Base、Load、Login、Index等模块，Base是基础框架模块，Load是资源信息加载模块，Login是用户登录和退出模块，Index是首页模块；
 
 
 
