@@ -30,7 +30,7 @@ class LoadPage extends React.Component {
             const progress = this.state.progress;
             if (progress >= 100) {
                 clearInterval(this.state.interval);
-                this.props.changeRoute('/index');
+                this.props.changeRoute('/login');
                 return;
             }
             this.setState({
