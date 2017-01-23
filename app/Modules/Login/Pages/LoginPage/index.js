@@ -9,8 +9,7 @@ import { push } from 'react-router-redux';
 import Helmet from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 
-import { changeUserName, changePassword, login } from '../../Store/actions';
-import { selectLoginState } from './selectors';
+import { changeUserName, changePassword } from '../../Store/actions';
 
 import styles from './styles.css';
 
@@ -18,6 +17,9 @@ export class LoginPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onKeyup = this.onKeyup.bind(this);// 声明函数onKeyup
+		this.state = {
+			islogin: 2,
+        };
 	}
 
 	componentDidMount() {
@@ -27,10 +29,6 @@ export class LoginPage extends React.Component {
 	}
 
 	componentDidUpdate() {
-		// 登录成功则跳转到首页面
-		if (this.props.islogin === 1) {
-			this.openBasePage();
-		}
 	}
 
 	componentWillUnmount() {
@@ -56,8 +54,12 @@ export class LoginPage extends React.Component {
 		// 判断一下用户和密码是否补全
 		this.props.changeUserName(logInfo.username);
 		this.props.changePassword(logInfo.password);
-		if (this.props.login) {
-			this.props.login();
+		if (logInfo.username && logInfo.username !== '') {
+			this.openBasePage();
+		} else {
+			this.setState({
+				islogin: 0,
+			});
 		}
 	}
 	/**
@@ -84,7 +86,7 @@ export class LoginPage extends React.Component {
 					<br />
 					<input id="password" type="password" placeholder="密码" />
 					<br />
-					{this.props.islogin === 0 ? <div className={styles.error}>用户名或密码错误</div> : <div className={styles.error}></div>}
+					{this.state.islogin === 0 ? <div className={styles.error}>请输入用户名</div> : <div className={styles.error}></div>}
 					<button id="loginBtn" onClick={(e) => this.handleSubmit(e)}>登录</button>
 				</div>
 			</div>
@@ -96,12 +98,9 @@ LoginPage.propTypes = {
 	changeRoute: React.PropTypes.func,
 	changeUserName: React.PropTypes.func,
 	changePassword: React.PropTypes.func,
-	login: React.PropTypes.func,
-	islogin: React.PropTypes.number,
 };
 
 const mapStateToProps = createStructuredSelector({
-	islogin: selectLoginState(),
 });
 
 export function mapDispatchToProps(dispatch) {
@@ -109,7 +108,6 @@ export function mapDispatchToProps(dispatch) {
 		changeUserName: (username) => dispatch(changeUserName(username)),
 		changePassword: (password) => dispatch(changePassword(password)),
 		changeRoute: (url) => dispatch(push(url)),
-		login: () => dispatch(login()),
 	};
 }
 

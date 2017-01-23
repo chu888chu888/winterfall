@@ -4,30 +4,28 @@
 	left:0;
 	width: 100%;
 	height: 100%;
-	background: url(../../Images/dam-bg.jpg);
+	
 	background-position: top center;
 	z-index: 99;
 }
 .systemTitle{
-	width: 410px;
-	height: 107px;
-	background: url(../../Images/logo.png) no-repeat;
 	position: absolute;
+	width: 192px;
+	height: 107px;
 	top: 32%;
 	left: 50%;
-	margin: -120px 0 0 -250px;
+	background: url(../../Images/logo.png);
+	margin: -100px 0 0 -150px;
 }
 .loginBox{
 	width: 410px;
 	height: 330px;
-	background: rgba(255,255,255,.7);
 	position: absolute;
 	left: 50%;
 	margin-left: -250px;
 	top: 28%;
 	padding: 80px 0 0 0;
 	text-align: center;
-	box-shadow: 0 5px 10px rgba(0,0,0,.5);
 }
 .loginBox label{
 	color: white;
@@ -80,7 +78,7 @@
 	height: 35px;
 	font-size: 16px;
 	font-family: "微软雅黑", "Microsoft YaHei";
-	background: #5a79ba;
+	background: #3bb165;
 	color: white;
 	border: none;
 } 
