@@ -11,8 +11,8 @@
 
     1. `Button/`：模块名字，可通过`import`方式导入到实际页面；
 
-    - `index.js`：默认内容；
-    - `styles.css`：默认样式；
+      - `index.js`：默认内容；
+      - `styles.css`：默认样式；
 
 3.  `Modules/`：页面大模块，包含几大业务模块;
 
