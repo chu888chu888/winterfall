@@ -11,7 +11,6 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 
 import { LOAD_REPOS } from './actionTypes';
 import { reposLoaded, repoLoadingError } from './actions';
-import { changeUsername } from 'Modules/Base/Store/actions';
 
 import request from 'Utils/request';
 
@@ -24,7 +23,6 @@ export function* getRepos(username) {
     if (!repos.err) {
         // dispatch
         yield put(reposLoaded(repos.data));
-        yield put(changeUsername(username));
     } else {
         // dispatch
         yield put(repoLoadingError(repos.err));
