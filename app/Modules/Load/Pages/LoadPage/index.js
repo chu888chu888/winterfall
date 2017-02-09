@@ -36,7 +36,7 @@ class LoadPage extends React.Component {
             this.setState({
                 progress: (progress + 1),
             });
-        }, 50);
+        }, 25);
         this.setState({
             interval: tmpInterval,
         });
