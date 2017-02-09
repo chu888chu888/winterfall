@@ -27,8 +27,16 @@ export class IndexPage extends React.Component {
 	componentDidMount() {
 	}
 
-	openFeaturesPage = () => {
-		this.props.changeRoute('/features');
+	openIndexPage = () => {
+		this.props.changeRoute('/index');
+	};
+
+	openAboutPage = () => {
+		this.props.changeRoute('/about');
+	};
+
+	openLoginPage = () => {
+		this.props.changeRoute('/login');
 	};
 
 	render() {
@@ -40,8 +48,9 @@ export class IndexPage extends React.Component {
 						<div className={styles['row-container']}>
 							<div className={styles['row-2']}>
 								<nav className={styles['nav-title']}>
-									<a href="/index">Ecidi</a>
-									<a href="/about">About</a>
+									<button onClick={() => this.openIndexPage()}>Ecidi</button>
+									<button onClick={() => this.openAboutPage()}>About</button>
+									<button onClick={() => this.openLoginPage()}>Login</button>
 								</nav>
 							</div>
 						</div>
