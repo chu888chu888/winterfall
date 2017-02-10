@@ -139,6 +139,40 @@ export default function createRoutes(store) {
 
 				importModules.catch(errorLoading);
 			},
+		},
+		{
+			path: '/echart',
+			name: 'echart',
+			getComponent: (nextState, cb) => {
+				const importModules = Promise.all([
+					System.import('Modules/Index/Pages/EChartPage'),
+				]);
+
+				const renderRoute = loadModule(cb);
+
+				importModules.then(([component]) => {
+					renderRoute(component);
+				});
+
+				importModules.catch(errorLoading);
+			},
+		},
+		{
+			path: '/rechart',
+			name: 'rechart',
+			getComponent: (nextState, cb) => {
+				const importModules = Promise.all([
+					System.import('Modules/Index/Pages/REChartPage'),
+				]);
+
+				const renderRoute = loadModule(cb);
+
+				importModules.then(([component]) => {
+					renderRoute(component);
+				});
+
+				importModules.catch(errorLoading);
+			},
 		}],
 	}];
 }

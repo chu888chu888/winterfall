@@ -31,6 +31,14 @@ export class IndexPage extends React.Component {
 		this.props.changeRoute('/index');
 	};
 
+	openEChartPage = () => {
+		this.props.changeRoute('/echart');
+	};
+
+	openREChartPage = () => {
+		this.props.changeRoute('/rechart');
+	};
+
 	openAboutPage = () => {
 		this.props.changeRoute('/about');
 	};
@@ -49,6 +57,8 @@ export class IndexPage extends React.Component {
 							<div className={styles['row-2']}>
 								<nav className={styles['nav-title']}>
 									<button className={styles.btn} onClick={() => this.openIndexPage()}>Ecidi</button>
+									<button className={styles.btn} onClick={() => this.openEChartPage()}>EChart</button>
+									<button className={styles.btn} onClick={() => this.openREChartPage()}>REChart</button>
 									<button className={styles.btn} onClick={() => this.openAboutPage()}>About</button>
 									<button className={`${styles.btn} ${styles['btn-right']}`} onClick={() => this.openLoginPage()}>sign out</button>
 								</nav>
@@ -57,7 +67,7 @@ export class IndexPage extends React.Component {
 					</header>
 				</div>
 				{React.Children.toArray(this.props.children)}
-				<div className={styles['route-body']}>
+				<div className={styles.footer}>
 					<div className={styles['row-container']}>
 						<div className={styles['row-2']}>
 							<h6>浙江华东数字工程技术有限公司</h6>
