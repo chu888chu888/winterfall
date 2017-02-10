@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2016-present, ecidi.
  * All rights reserved.
- * 
+ *
  * This source code is licensed under the GPL-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
- * 
- * 合并所有的 reducers 
+ *
+ * 合并所有的 reducers
  *
  * 再次强调一下 Redux 应用只有一个单一的 store。当需要拆分数据处理逻辑时，你应该使用 reducer 组合 而不是创建多个 store。
  * 使用 combineReducers() 将多个 reducer 合并成为一个。
@@ -15,8 +15,7 @@
 import { fromJS } from 'immutable';
 import { combineReducers } from 'redux-immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
-
-import globalReducer from 'Pages/BasePage/reducer';
+import globalReducer from 'Modules/Base/Store/reducer';
 
 // routeReducer
 // 初始化redux store里的route

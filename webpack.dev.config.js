@@ -44,7 +44,6 @@ module.exports = require('./webpack.base.config')({
     output: {
         filename: '[name].js',
         chunkFilename: '[name].chunk.js',
-        publicPath: 'http://localhost:8080/',
     },
 
     // 添加开发所需插件
@@ -58,7 +57,7 @@ module.exports = require('./webpack.base.config')({
         // importLoaders 后面连接的loader数量
         // sourceMap 能让extract-text-webpack-plugin可以处理这些css文件
     // style-loader 将样式注入到style中
-    cssLoaders: 'style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader',
+    cssLoaders: 'style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1!postcss-loader',
 
     // babel-loader的配置信息
     // 配置babel，我们需要热部署
