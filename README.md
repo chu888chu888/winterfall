@@ -125,13 +125,12 @@ $ npm run lint
 
 #### 项目更新日志
 
-v2.0.0
+v2.0.0​
 
-​1. 为加强暂存数据的有效管理，引入大模块的概念，将原有Page的方式修改为以模块的形式
-进行组织，具体方式参见目录结构Modules部分；
-
-​2. Modules目录下包含Base、Load、Login、Index等模块，Base是基础框架模块，Load是资源
-信息加载模块，Login是用户登录和退出模块，Index是首页模块；
+1. 为加强暂存数据的有效管理，引入大模块的概念，将原有Page的方式修改为以模块的形式
+进行组织，具体方式参见目录结构Modules部分。
+2. Modules目录下包含Base、Load、Login、Index等模块，Base是基础框架模块，Load是资源
+信息加载模块，Login是用户登录和退出模块，Index是首页模块。
 
 v1.1.0
 
