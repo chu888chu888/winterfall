@@ -139,6 +139,23 @@ export default function createRoutes(store) {
 
 				importModules.catch(errorLoading);
 			},
+		},
+		{
+			path: '/antd',
+			name: 'antd',
+			getComponent: (nextState, cb) => {
+				const importModules = Promise.all([
+					System.import('Modules/Index/Pages/AntdPage'),
+				]);
+
+				const renderRoute = loadModule(cb);
+
+				importModules.then(([component]) => {
+					renderRoute(component);
+				});
+
+				importModules.catch(errorLoading);
+			},
 		}],
 	}];
 }
