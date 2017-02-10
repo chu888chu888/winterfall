@@ -46,16 +46,27 @@ p,h1,h2,h3,h4,h5,h6 {
     font-size: 26px;
 }
 
-.nav-title button{
+.nav-title .btn{
     text-decoration: none;
-    color: #666;
+    color: #000000;
     background-color: transparent;
-    position: relative;
+    /*position: relative;*/
+    float: left;
     margin-right: 12px;
     width: 75px;
     display: inline-block;
     font-size: 22px;
     outline:none;
+}
+
+.nav-title .btn:hover{
+    color: #6778c0;
+}
+
+.nav-title .btn-right{
+    width: 150px;
+    float: right;
+    font-size: 18px;
 }
 
 

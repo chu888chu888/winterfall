@@ -48,9 +48,9 @@ export class IndexPage extends React.Component {
 						<div className={styles['row-container']}>
 							<div className={styles['row-2']}>
 								<nav className={styles['nav-title']}>
-									<button onClick={() => this.openIndexPage()}>Ecidi</button>
-									<button onClick={() => this.openAboutPage()}>About</button>
-									<button onClick={() => this.openLoginPage()}>Login</button>
+									<button className={styles.btn} onClick={() => this.openIndexPage()}>Ecidi</button>
+									<button className={styles.btn} onClick={() => this.openAboutPage()}>About</button>
+									<button className={`${styles.btn} ${styles['btn-right']}`} onClick={() => this.openLoginPage()}>sign out</button>
 								</nav>
 							</div>
 						</div>
