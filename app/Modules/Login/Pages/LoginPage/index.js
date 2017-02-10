@@ -90,12 +90,12 @@ export class LoginPage extends React.Component {
 	render() {
 		return (
 			<div className={styles.login}>
-				<Helmet title="登录" />
+				<Helmet title="Sign in" />
 				<div className={styles.systemTitle}></div>
 				<div className={styles.loginBox}>
-					<input id="username" type="text" placeholder="用户名" />
-					{this.state.islogin === 0 ? <div className={styles.error}>请输入用户名</div> : <div className={styles.error}></div>}
-					<button id="loginBtn" onClick={(e) => this.handleSubmit(e)}>下一步</button>
+					<input id="username" type="text" placeholder="username" />
+					{this.state.islogin === 0 ? <div className={styles.error}>input a username</div> : <div className={styles.error}></div>}
+					<button id="loginBtn" onClick={(e) => this.handleSubmit(e)}>sign in</button>
 				</div>
 			</div>
 		);
