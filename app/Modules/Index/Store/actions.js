@@ -12,6 +12,9 @@ import {
 	LOAD_REPOS,
 	LOAD_REPOS_SUCCESS,
 	LOAD_REPOS_ERROR,
+	LOAD_DGN,
+	LOAD_DGN_SUCCESS,
+	LOAD_DGN_ERROR,
 } from './actionTypes';
 
 // <: =======================
@@ -33,6 +36,26 @@ export function reposLoaded(repos) {
 export function repoLoadingError(error) {
 	return {
 		type: LOAD_REPOS_ERROR,
+		error: error,
+	};
+}
+
+export function loadDgn() {
+	return {
+		type: LOAD_DGN,
+	};
+}
+
+export function dgnLoaded(repos) {
+	return {
+		type: LOAD_DGN_SUCCESS,
+		repos: repos,
+	};
+}
+
+export function dgnLoadingError(error) {
+	return {
+		type: LOAD_DGN_ERROR,
 		error: error,
 	};
 }

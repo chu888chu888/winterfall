@@ -9,8 +9,8 @@
 import { take, call, put, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
-import { LOAD_REPOS } from './actionTypes';
-import { reposLoaded, repoLoadingError } from './actions';
+import { LOAD_REPOS, LOAD_DGN } from './actionTypes';
+import { reposLoaded, repoLoadingError, dgnLoaded, dgnLoadingError } from './actions';
 
 import request from 'Utils/request';
 
@@ -48,6 +48,50 @@ export function* githubData() {
     yield cancel(watcher);
 }
 
+
+// dgn 响应 request/response 处理
+export function* getDgn(username) {
+    const requestURL = systemsetting.DGNAddress;
+
+    const repos = yield call(request, requestURL, {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Basic ${btoa(systemsetting.pp)}`,
+        },
+    });
+
+    if (!repos.err) {
+        // dispatch
+        yield put(dgnLoaded(repos.data));
+    } else {
+        // dispatch
+        yield put(dgnLoadingError(repos.err));
+    }
+}
+
+// 关注所需处理的行为以及请求
+export function* getDgnWatcher() {
+    // saga会阻塞take，直到一个匹配的action被发起。
+    while (true) {
+        const action = yield take(LOAD_DGN);
+        yield call(getDgn, action.username);
+    }
+}
+
+// saga管理观察者生命周期
+export function* getDgnData() {
+    // 通过fork观察者，我们可以继续执行
+    const watcher = yield fork(getDgnWatcher);
+
+    // 延迟执行直到location产生变化
+    yield take(LOCATION_CHANGE);
+    yield cancel(watcher);
+}
+
+
 export default [
     githubData,
+    getDgnData,
 ];

@@ -54,6 +54,10 @@ window.dgn.style.display = 'none';
 window.systemsetting = {
 	serverUrl: 'http://10.215.4.36:8007',
 	modelName: '杨房沟总装',
+	modelServerAddress: 'http://10.215.160.35:6511/api/user/meta-files/?category=1',
+	pp: 'yfg:yfg',
+	DGNAddress: 'http://10.215.160.35:6511/api/user/meta-files/?category=4',
+	modelDownloadAddress: 'http://10.215.160.35:6512/media/documents/meta/',
 };
 
 ReactDOM.render(

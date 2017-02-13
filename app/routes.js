@@ -155,6 +155,22 @@ export default function createRoutes(store) {
 
 				importModules.catch(errorLoading);
 			},
+		}, {
+			path: '/dgn-download',
+			name: 'dgn-download',
+			getComponent: (nextState, cb) => {
+				const importModules = Promise.all([
+					System.import('Modules/Index/Pages/DgnDownloadPage'),
+				]);
+
+				const renderRoute = loadModule(cb);
+
+				importModules.then(([component]) => {
+					renderRoute(component);
+				});
+
+				importModules.catch(errorLoading);
+			},
 		}],
 	}];
 }

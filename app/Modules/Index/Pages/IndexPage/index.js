@@ -35,6 +35,10 @@ export class IndexPage extends React.Component {
 		this.props.changeRoute('/dgn-view');
 	};
 
+	openDGNDownloadPage = () => {
+		this.props.changeRoute('/dgn-download');
+	}
+
 	openAboutPage = () => {
 		this.props.changeRoute('/about');
 	};
@@ -54,6 +58,7 @@ export class IndexPage extends React.Component {
 								<nav className={styles['nav-title']}>
 									<button className={styles.btn} onClick={() => this.openIndexPage()}>Ecidi</button>
 									<button className={styles.btn} onClick={() => this.openDGNModelViewPage()}>DGN View</button>
+									<button className={styles.btn} onClick={() => this.openDGNDownloadPage()}>DGN Download</button>
 									<button className={styles.btn} onClick={() => this.openAboutPage()}>About</button>
 									<button className={`${styles.btn} ${styles['btn-right']}`} onClick={() => this.openLoginPage()}>sign out</button>
 								</nav>

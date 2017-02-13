@@ -12,6 +12,9 @@ import {
 	LOAD_REPOS,
 	LOAD_REPOS_SUCCESS,
 	LOAD_REPOS_ERROR,
+	LOAD_DGN,
+	LOAD_DGN_SUCCESS,
+	LOAD_DGN_ERROR,
 } from './actionTypes';
 import { fromJS } from 'immutable';
 
@@ -19,6 +22,7 @@ const initialState = fromJS({
 	loading: false,
 	error: false,
 	repos: false,
+	data: false,
 });
 
 function indexReducer(state = initialState, action) {
@@ -33,6 +37,19 @@ function indexReducer(state = initialState, action) {
 				.set('repos', action.repos)
 				.set('loading', false);
 		case LOAD_REPOS_ERROR:
+			return state
+				.set('error', action.error)
+				.set('loading', false);
+		case LOAD_DGN:
+			return state
+				.set('loading', true)
+				.set('error', false)
+				.set('data', false);
+		case LOAD_DGN_SUCCESS:
+			return state
+				.set('data', action.repos)
+				.set('loading', false);
+		case LOAD_DGN_ERROR:
 			return state
 				.set('error', action.error)
 				.set('loading', false);
