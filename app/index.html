@@ -7,5 +7,46 @@
 	</head>
 	<body>
 		<div id="app"></div>
+		<div id="dgndbbox" >
+			<object id="dgn" classid="CLSID:FDA27781-B317-4200-A349-28B4D899DEEE" codebase="DgnDbViewer.ocx"></object>
+		</div>
+
 	</body>
+	<script for="dgn" lanuage="JavaScript" event="FireGetElementInfoEvent(result)">
+	{//处理点击模型获取模型ie和name
+		var objArr =JSON.parse(JSON.parse(result));
+        if (objArr) {
+			if(objArr!=null){
+				window.dgnElement = objArr.pop();
+        		document.dispatchEvent(window.modelClick);
+			}		
+        }
+	}
+	</script>
+	<script for="dgn" language="JavaScript" event="FireGetLevelsByModelEvent(result)">
+    {
+        if (result) {
+            // 所有的图层下级信息。
+            result = JSON.parse(result);
+
+            if(result!=null){
+				window.Levels = result;
+        		document.dispatchEvent(window.getLevels);
+			}	
+        }
+    }
+    </script>
+    <script for="dgn" language="JavaScript" event="FireGetModelsEvent(result)">
+    {
+    	console.dir(result);
+        if (result) {
+        	// 所有的model集合。
+        	result = JSON.parse(JSON.parse(result));
+            if(result!=null){
+				window.Models = result;
+        	    document.dispatchEvent(window.getModels);
+			}	
+        }
+    }
+    </script>
 </html>

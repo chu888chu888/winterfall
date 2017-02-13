@@ -47,6 +47,14 @@ const rootRoute = {
 	component: BasePage,
 	childRoutes: createRoutes(store),
 };
+// dgn配置
+window.dgn = document.getElementById('dgn');
+window.dgn.style.display = 'none';
+// 全局配置文件
+window.systemsetting = {
+	serverUrl: 'http://10.215.4.36:8007',
+	modelName: '杨房沟总装',
+};
 
 ReactDOM.render(
 	<Provider store={store}>

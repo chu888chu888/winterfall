@@ -18,7 +18,7 @@ p,h1,h2,h3,h4,h5,h6 {
 }
 
 .wrapper {
-    height: 100px;
+    height: 60px;
     width: 100%;
 }
 
@@ -53,7 +53,7 @@ p,h1,h2,h3,h4,h5,h6 {
     /*position: relative;*/
     float: left;
     margin-right: 12px;
-    width: 75px;
+    width: 120px;
     display: inline-block;
     font-size: 22px;
     outline:none;

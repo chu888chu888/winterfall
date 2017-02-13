@@ -1,0 +1,202 @@
+.treeView{
+  -moz-user-select:none;/*火狐*/
+  -webkit-user-select:none;/*webkit浏览器*/
+  -ms-user-select:none;/*IE10*/
+  -khtml-user-select:none;/*早期浏览器*/
+  user-select:none;
+  color: #333;
+  font-family: "sans-serif", "宋体","SimSun";
+  //background: url(./treebg.png) repeat;
+  width: calc(100% - 6px);
+  height: calc(100% - 40px);
+  overflow: auto;
+  position: absolute;
+  box-sizing: content-box;
+  top: 40px;
+  left: 3px;
+}
+
+.treeView a{
+  color: #333;
+}
+
+.treeView a:hover{
+  color: #38f;
+}
+
+.treeView ul{
+  list-style: none;
+  margin: 0 0 0 1em;
+  padding: 0;
+  line-height: 22px;
+  overflow: show;
+  transition: all 0.5s;
+  width: auto;
+}
+
+.treeView ul:first-child{
+	margin: 0;
+}
+
+.treeView ul li{
+	width: auto;
+	white-space: nowrap;
+}
+
+.treeView ul li.highlight{
+	background: #ccf;
+}
+
+.treeview span{
+  cursor: pointer;
+}
+
+.treeView span{
+	cursor: pointer;
+	line-height: 16px;
+}
+
+.treeView input {
+	vertical-align: middle;
+}
+
+span.folded{
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url(./tree_icon.png) no-repeat;
+  vertical-align: middle;
+}
+span.expanded{
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url(./tree_icon.png) no-repeat;
+  background-position: -30px 0;
+  vertical-align: middle;
+}
+span.loading{
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url(./tree_icon.png) no-repeat;
+  background-position: -150px 0;
+  vertical-align: middle;
+}
+span.none{
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  vertical-align: middle;
+}
+
+ul.folded{
+  //display: none;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+ul.expanded{
+  //display: block;
+  height: auto;
+  opacity: 1;
+  overflow: show;
+}
+
+span.icon{
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 0 5px;
+  //background: url(./tree_icon.png) no-repeat;
+  vertical-align: middle;
+  cursor: default;
+}
+
+span.folder{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 5px;
+  background: url(./tree_icon.png) no-repeat;
+  background-position: -60px 0;
+  font-size: 12px;
+}
+
+span.folder.folded{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 5px;
+  background: url(./tree_icon.png) no-repeat;
+  background-position: -60px 0;
+}
+
+span.folder.expanded{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 5px;
+  background: url(./tree_icon.png) no-repeat;
+  background-position: -90px 0;
+}
+
+span.file{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 5px;
+  background: url(./tree_icon.png) no-repeat;
+  background-position: -120px 0;
+
+}
+
+span.icon01:before{color:#666;font-size: 16px;content: "\e908"}
+span.icon02:before{color:#666;font-size: 16px;content: "\e909"}
+span.icon03:before{color:#666;font-size: 16px;content: "\e90d"}
+span.icon04:before{color:#666;font-size: 16px;content: "\e90c"}
+span.icon05:before{color:#666;font-size: 16px;content: "\e90b"}
+span.icon06:before{color:#666;font-size: 16px;content: "\e90a"}
+span.icon07:before{color:#666;font-size: 16px;content: "\e938"}
+span.icon08:before{color:#666;font-size: 16px;content: "\e93f"}
+span.icon09:before{color:#666;font-size: 16px;content: "\e93d"}
+span.icon10:before{color:#666;font-size: 16px;content: "\e940"}
+span.icon11:before{color:#666;font-size: 16px;content: "\e933"}
+span.icon12:before{color:#666;font-size: 16px;content: "\e93b"}
+span.icon13:before{color:#666;font-size: 16px;content: "\e93c"}
+span.icon14:before{color:#666;font-size: 16px;content: "\e937"}
+span.icon15:before{color:#666;font-size: 16px;content: "\e942"}
+span.icon16:before{color:#666;font-size: 16px;content: "\e93e"}
+span.icon17:before{color:#666;font-size: 16px;content: "\e931"}
+span.icon18:before{color:#666;font-size: 16px;content: "\e934"}
+span.icon19:before{color:#666;font-size: 16px;content: "\e936"}
+span.icon20:before{color:#666;font-size: 16px;content: "\e932"}
+span.icon21:before{color:#666;font-size: 16px;content: "\e954"}
+span.icon22:before{color:#666;font-size: 16px;content: "\e939"}
+span.icon23:before{color:#666;font-size: 16px;content: "\e941"}
+span.icon24:before{color:#666;font-size: 16px;content: "\e935"}
+span.icon25:before{color:#666;font-size: 16px;content: "\e93a"}
+span.icon26:before{color:#666;font-size: 16px;content: "\e955"}
+span.icon31:before{color:#666;font-size: 16px;content: "\e94f"}
+span.icon32:before{color:#666;font-size: 16px;content: "\e94d"}
+span.icon33:before{color:#666;font-size: 16px;content: "\e953"}
+span.icon54:before{color:#666;font-size: 16px;content: "\e94a"}
+span.icon55:before{color:#666;font-size: 16px;content: "\e957"}
+span.icon56:before{color:#666;font-size: 16px;content: "\e950"}
+span.icon57:before{color:#666;font-size: 16px;content: "\e949"}
+span.icon58:before{color:#666;font-size: 16px;content: "\e94b"}
+
+span.wip:before{color:#666;font-size: 16px;content: "\e927"}
+span.done:before{color:#666;font-size: 16px;content: "\e925"}
+span.tbd:before{color:#666;font-size: 16px;content: "\e923"}
+span.deputed:before{color:#666;font-size: 16px;content: "\e924"}
+span.task:before{color:#666;font-size: 16px;content: "\e91d"}
+
+span.locIcon1:before{color:#666;font-size: 16px;content: "\e907"}
+span.locIcon2:before{color:#666;font-size: 16px;content: "\e93b"}
+span.locIcon3:before{color:#666;font-size: 16px;content: "\e908"}
+span.locIcon4:before{color:#666;font-size: 16px;content: "\e95c"}
+span.locIcon5:before{color:#666;font-size: 16px;content: "\e95b"}
+span.locModel:before{color:#666;font-size: 16px;content: "\e95a"}
