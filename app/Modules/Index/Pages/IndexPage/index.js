@@ -60,7 +60,7 @@ export class IndexPage extends React.Component {
 				<div className={styles['route-body']}>
 					<div className={styles['row-container']}>
 						<div className={styles['row-2']}>
-							<h6>浙江华东数字工程技术有限公司</h6>
+							<h6>浙江华东工程数字技术有限公司</h6>
 						</div>
 					</div>
 				</div>
