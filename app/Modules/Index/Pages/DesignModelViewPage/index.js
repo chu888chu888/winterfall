@@ -52,7 +52,7 @@ export class DesignModelViewPage extends React.Component {
 				<Helmet title="Readme" />
 				<div className={styles['route-body']}>
 					<div className={styles['row-container']}>
-						<div className={styles['row-2']}>
+						<div id="defaultModelDisplay" className={styles['row-2']}>
 							<h3>{systemsetting.modelName}</h3>
 							<DgnViewer ShowLayers={true} model={systemsetting.modelName}  width="960px"  height="600px"/>
 						</div>
