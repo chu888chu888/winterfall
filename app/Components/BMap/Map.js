@@ -1,0 +1,142 @@
+/*
+  Declarative Baidu Map
+*/
+
+/* global BMap */
+
+import React, { Component, PropTypes } from 'react';
+import styles from './styles.css';
+const AK = '8WmYSUDQzqGYuIFjZR0xMQ20AYEjaSTI';
+
+export default class Map extends Component {
+
+  state = {
+    loaded: !!window.BMap,
+  };
+  static defaultProps = {
+    initialZoom: 14,
+    initialCenter: [121.491, 31.233],
+  }
+  static propTypes = {
+
+  };
+
+  static childContextTypes = {
+    map: PropTypes.object,
+  };
+
+  getChildContext() {
+    return { map: this.map }
+  }
+
+  componentDidMount() {
+    // load and mount map
+    if (!this.state.loaded) {
+      window.mapOnLoad = this.loadBmap;
+      const script = document.createElement("script");
+      script.src = 'http://api.map.baidu.com/api?v=2.0&ak='
+      + AK +
+      '&callback=mapOnLoad';
+      script.async = true;
+      script.addEventListener('error', () => {
+        this.setState({ loadError: true });
+      }, false);
+      document.body.appendChild(script);
+    } else {
+      this.initBmap();
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (!this.map) return;
+    // onClick event
+    if (this.props.onClick !== nextProps.onClick) {
+      if (this.props.onClick) {
+        this.map.removeEventListener('click', this.props.onClick);
+      }
+      if (nextProps.onClick) {
+        this.map.addEventListener('click', nextProps.onClick);
+      }
+    }
+    if (this.props.route !== nextProps.route) {
+      if (nextProps.route && nextProps.route.length > 1) {
+        this.clearRoute();
+        this.drawRoute(nextProps.route);
+      } else {
+        this.clearRoute();
+      }
+    }
+  }
+
+  loadBmap = () => {
+    this.setState({
+      loaded: true,
+    }, () => {
+      // after state is changed
+      this.initBmap();
+    });
+    window.loadBmap = null; // release memory
+  }
+
+  initBmap = () => {
+    const {initialZoom, initialCenter} = this.props;
+    this.map = new BMap.Map('mapHolder');
+    this.map.centerAndZoom(new BMap.Point(initialCenter[0], initialCenter[1]), this.props.initialZoom);
+    window.daMap = this.map;
+    this.setState({ mapLoaded: true }); // force context to be set
+    const { onClick } = this.props;
+    if (this.onClick) {
+      this.map.addEventListener("click", onClick)
+    }
+    if (this.props.route && this.props.route.length > 1) {
+      this.drawRoute(this.props.route);
+    }
+    if (this.props.onLoad) { // fire onload event
+      this.props.onLoad();
+    }
+  }
+
+  clearRoute() {
+    if (this._route) {
+      this.map.removeOverlay(this._route);
+      this._route = null;
+    }
+  }
+
+  drawRoute = (route) => {
+    console.log('draw', route);
+    const polyline = new BMap.Polyline(route,
+      {strokeColor: 'red', strokeWeight: 6, strokeOpacity: 1}
+    );
+    console.log(polyline);
+    this.map.addOverlay(polyline);
+    this._route = polyline;
+  }
+
+  renderLoader() {
+    return (<div className={styles['map-container']}>
+      <span className={styles['map-status-text']}>载入中...</span>
+    </div>);
+  }
+
+  renderLoadError() {
+    return (<div className={styles['map-container']}>
+      <span className={styles['map-status-text']}>载入出错</span>
+    </div>);
+  }
+
+  render() {
+    const { loaded, loadError } = this.state;
+    const { children } = this.props;
+    if (!loaded) {
+      if (loadError) return this.renderLoadError();
+      return this.renderLoader();
+    }
+    return (
+      <div className={styles['map-container']}>
+        <div id="mapHolder" />
+        <ul id="results" />
+      {children}
+    </div>);
+  }
+}

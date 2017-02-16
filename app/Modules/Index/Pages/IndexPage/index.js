@@ -31,6 +31,10 @@ export class IndexPage extends React.Component {
 		this.props.changeRoute('/index');
 	};
 
+	openBaiduMapPage = () => {
+		this.props.changeRoute('/bmap');
+	}
+
 	openAboutPage = () => {
 		this.props.changeRoute('/about');
 	};
@@ -49,6 +53,7 @@ export class IndexPage extends React.Component {
 							<div className={styles['row-2']}>
 								<nav className={styles['nav-title']}>
 									<button className={styles.btn} onClick={() => this.openIndexPage()}>Ecidi</button>
+									<button className={styles.btn} onClick={() => this.openBaiduMapPage()}>Baidu Map</button>
 									<button className={styles.btn} onClick={() => this.openAboutPage()}>About</button>
 									<button className={`${styles.btn} ${styles['btn-right']}`} onClick={() => this.openLoginPage()}>sign out</button>
 								</nav>
