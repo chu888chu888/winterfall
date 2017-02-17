@@ -133,12 +133,12 @@ v2.0.0
    信息加载模块，Login是用户登录和退出模块，Index是首页模块。
 3. 在项目的webpack配置文件中添加了HtmlWebpackPlugin中favicon的配置项。
 4. 基于winterfall 2.0版本，针对项目中可能运用插件制作了Demo，主要包括以下几个方面：
-   1. [Ant Design](https://ant.design/index-cn)，内容详见分支[demo_antd](https://github.com/ecidi/winterfall/tree/demo_antd)；
-   2. [百度地图开放API](http://lbsyun.baidu.com/index.php?title=jspopular)，内容详见分支[demo_bmap](https://github.com/ecidi/winterfall/tree/demo_bmap)；
-   3. 开源地图引擎[Leaflet](http://leafletjs.com/)，内容详见分支[demo_leaflet](https://github.com/ecidi/winterfall/tree/demo_leaflet)；
-   4. 三维地理信息开发API [CityMaker](http://www.citymakeronline.com/index.htm)，内容详见分支[demo_citymaker](https://github.com/ecidi/winterfall/tree/demo_citymaker)；
-   5. JavaScript 的图表库 [ECharts](http://echarts.baidu.com/index.html)，内容详见分支[demo_echatrs](https://github.com/ecidi/winterfall/tree/demo_echatrs)；
-   6. ecidi数字化研发部BIM模型显示控制插件DGN 插件（WebBIM），内容详见分支[demo_dgn](https://github.com/ecidi/winterfall/tree/demo_dgn)；
+   - [Ant Design](https://ant.design/index-cn)，内容详见分支[demo_antd](https://github.com/ecidi/winterfall/tree/demo_antd)；
+   - [百度地图开放API](http://lbsyun.baidu.com/index.php?title=jspopular)，内容详见分支[demo_bmap](https://github.com/ecidi/winterfall/tree/demo_bmap)；
+   - 开源地图引擎[Leaflet](http://leafletjs.com/)，内容详见分支[demo_leaflet](https://github.com/ecidi/winterfall/tree/demo_leaflet)；
+   - 三维地理信息开发API [CityMaker](http://www.citymakeronline.com/index.htm)，内容详见分支[demo_citymaker](https://github.com/ecidi/winterfall/tree/demo_citymaker)；
+   - JavaScript 的图表库 [ECharts](http://echarts.baidu.com/index.html)，内容详见分支[demo_echatrs](https://github.com/ecidi/winterfall/tree/demo_echatrs)；
+   - ecidi数字化研发部BIM模型显示控制插件DGN 插件（WebBIM），内容详见分支[demo_dgn](https://github.com/ecidi/winterfall/tree/demo_dgn)；
 
 v1.1.0
 
