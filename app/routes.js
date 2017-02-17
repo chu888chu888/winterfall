@@ -139,6 +139,22 @@ export default function createRoutes(store) {
 
 				importModules.catch(errorLoading);
 			},
+		}, {
+			path: '/leaflet',
+			name: 'LfMapPage',
+			getComponent: (nextState, cb) => {
+				const importModules = Promise.all([
+					System.import('Modules/Index/Pages/LfMapPage'),
+				]);
+
+				const renderRoute = loadModule(cb);
+
+				importModules.then(([component]) => {
+					renderRoute(component);
+				});
+
+				importModules.catch(errorLoading);
+			},
 		}],
 	}];
 }
