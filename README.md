@@ -52,6 +52,6 @@
   export default App;
 ```
 
-Demo效果
+### Demo效果
 
-![]('https://github.com/ecidi/coding-specification/blob/master/images/antd/ant_design.png' 'Demo效果展示')
+![Demo](https://github.com/ecidi/coding-specification/blob/master/images/antd/ant_design.png)
