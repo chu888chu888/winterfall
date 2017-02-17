@@ -97,6 +97,7 @@ module.exports = require('./webpack.base.config')({
                 minifyURLs: true, // 压缩 URLs (uses relateurl)
             },
             inject: true, // 制定资源存放位置
+            favicon: 'app/favico.ico', // 给html添加一个favicon
         }),
 
         // 针对提取出来的css文件进行操作，也是有三个变量

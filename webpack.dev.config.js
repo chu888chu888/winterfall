@@ -23,6 +23,7 @@ const plugins = [
     new HtmlWebpackPlugin({
         inject: true,  // 通过webpack生成一个注入所有文件的文件, e.g. bundle.js
         templateContent: templateContent(),  // html模板来源
+        favicon: 'app/favicon.ico', // 给html添加一个favicon
     }),
     // new webpack.SourceMapDevToolPlugin({
     //     filename: '[file].map',
