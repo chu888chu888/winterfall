@@ -11,28 +11,28 @@
 
     1. `Button/`：模块名字，可通过`import`方式导入到实际页面；
 
-      - `index.js`：默认内容；
-      - `styles.css`：默认样式；
+    - `index.js`：默认内容；
+    - `styles.css`：默认样式；
 
 3.  `Modules/`：页面大模块，包含几大业务模块;
 
     1. `Index/`：首页模块
 
-      - `Images/`: 图片目录；
+    - `Images/`: 图片目录；
 
-      - `Pages/`: 页面子模块，可通过`url`单独导航到；
-        
-          - `IndexPage`:
-               - `index.js`：默认内容；
-               - `styles.css`：默认样式；
-               - `selectors.js`：所有从store中获取内容的函数；
+    - `Pages/`: 页面子模块，可通过`url`单独导航到；
 
-      - `Store`: 数据流页面，数据存储及流转等过程；
+         - `IndexPage`:
+              - `index.js`：默认内容；
+              - `styles.css`：默认样式；
+              - `selectors.js`：所有从store中获取内容的函数；
 
-           - `action.js`：所有的action函数（Redux）；
-           - `actionType.js`：所有的actionType定义（Redux）；
-           - `reducer.js`：所有store变动函数（Redux）；
-           - `sagas.js`：所有saga函数，主要是和fetch进行配合；
+    - `Store`: 数据流页面，数据存储及流转等过程；
+
+         - `action.js`：所有的action函数（Redux）；
+         - `actionType.js`：所有的actionType定义（Redux）；
+         - `reducer.js`：所有store变动函数（Redux）；
+         - `sagas.js`：所有saga函数，主要是和fetch进行配合；
 
 4.  `Utils/`：工具模块；
 
@@ -125,12 +125,20 @@ $ npm run lint
 
 #### 项目更新日志
 
-v2.0.0​
+v2.0.0
 
 1. 为加强暂存数据的有效管理，引入大模块的概念，将原有Page的方式修改为以模块的形式
-进行组织，具体方式参见目录结构Modules部分。
+   进行组织，具体方式参见目录结构Modules部分。
 2. Modules目录下包含Base、Load、Login、Index等模块，Base是基础框架模块，Load是资源
-信息加载模块，Login是用户登录和退出模块，Index是首页模块。
+   信息加载模块，Login是用户登录和退出模块，Index是首页模块。
+3. 在项目的webpack配置文件中添加了HtmlWebpackPlugin中favicon的配置项。
+4. 基于winterfall 2.0版本，针对项目中可能运用插件制作了Demo，主要包括以下几个方面：
+   1. [Ant Design](https://ant.design/index-cn)，内容详见分支[demo_antd](https://github.com/ecidi/winterfall/tree/demo_antd)；
+   2. [百度地图开放API](http://lbsyun.baidu.com/index.php?title=jspopular)，内容详见分支[demo_bmap](https://github.com/ecidi/winterfall/tree/demo_bmap)；
+   3. 开源地图引擎[Leaflet](http://leafletjs.com/)，内容详见分支[demo_leaflet](https://github.com/ecidi/winterfall/tree/demo_leaflet)；
+   4. 三维地理信息开发API [CityMaker](http://www.citymakeronline.com/index.htm)，内容详见分支[demo_citymaker](https://github.com/ecidi/winterfall/tree/demo_citymaker)；
+   5. JavaScript 的图表库 [ECharts](http://echarts.baidu.com/index.html)，内容详见分支[demo_echatrs](https://github.com/ecidi/winterfall/tree/demo_echatrs)；
+   6. ecidi数字化研发部BIM模型显示控制插件DGN 插件（WebBIM），内容详见分支[demo_dgn](https://github.com/ecidi/winterfall/tree/demo_dgn)；
 
 v1.1.0
 
