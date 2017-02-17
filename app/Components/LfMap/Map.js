@@ -43,8 +43,8 @@ export class Map extends React.Component {
 			'影像': image,
 		}
 
-		const littleton = L.marker([31.59, 120.29]).bindPopup('This is Littleton, CO.'),
-			  denver    = L.marker([31.60, 120.28]).bindPopup('This is Denver, CO.');
+		const littleton = L.marker([22.5, 113.96]).bindPopup('This is Littleton, CO.'),
+			  denver    = L.marker([22.53, 113.97]).bindPopup('This is Denver, CO.');
 		const cities = L.layerGroup([littleton, denver]);
 
 		const overlayLayers = {
@@ -52,9 +52,9 @@ export class Map extends React.Component {
 		}
 
 		const map = L.map('mapid', {
-			center: [31.59, 120.29],
+			center: [22.5, 113.96],
 			zoom: 12,
-			layers: [normal],
+			layers: [image],
 			zoomControl: false,
 		});
 
