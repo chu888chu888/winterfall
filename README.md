@@ -54,4 +54,4 @@
 
 Demo效果
 
-!['Demo效果展示']('https://github.com/ecidi/coding-specification/blob/master/images/antd/ant_design.png')
+![Demo效果展示]('https://github.com/ecidi/coding-specification/blob/master/images/antd/ant_design.png')
