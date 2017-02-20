@@ -1,146 +1,77 @@
+### 三维地理信息开发API [CityMaker JS API](http://www.citymakeronline.com/index.htm)
 
-### winterfall  v 2.0.0
+#### 一、CityMaker系列产品
 
-*—— Winter is coming*
+​	CityMaker包含三部分产品：基础平台，应用平台，移动终端；
 
-#### 目录结构
+##### 基础平台
 
-1.  `app/`：源代码根目录；
+- 3DGIS数据平台
 
-2.  `Components/`：功能性模块，无法通过`url`单独导航到；
+  CityMaker Builder是专业的3DGIS数据生产与维护平台，也是多源数据集成和场景生成的平台；
 
-    1. `Button/`：模块名字，可通过`import`方式导入到实际页面；
+- 3DGIS服务平台
 
-      - `index.js`：默认内容；
-      - `styles.css`：默认样式；
+  CityMaker Server是专业的3DGIS服务聚合与发布平台，可用于系统部署和网络服务发布；
 
-3.  `Modules/`：页面大模块，包含几大业务模块;
+- 3DGIS应用平台
 
-    1. `Index/`：首页模块
+  CityMaker Explorer是通用的3DGIS应用平台，可用于三维场景的可视化漫游和实现应用分析功能；
 
-      - `Images/`: 图片目录；
+- 3DGIS开发平台
 
-      - `Pages/`: 页面子模块，可通过`url`单独导航到；
-        
-          - `IndexPage`:
-               - `index.js`：默认内容；
-               - `styles.css`：默认样式；
-               - `selectors.js`：所有从store中获取内容的函数；
+  CityMaker SDK是为开发者用户提供的3DGIS系统集成与应用开发平台，通过CityMaker SDK提供的开发组件，用户可方便实现基于桌面和基于网络的应用功能拓展、应用系统开发、3DGIS系统集成开发 ；
 
-      - `Store`: 数据流页面，数据存储及流转等过程；
+##### 应用平台
 
-           - `action.js`：所有的action函数（Redux）；
-           - `actionType.js`：所有的actionType定义（Redux）；
-           - `reducer.js`：所有store变动函数（Redux）；
-           - `sagas.js`：所有saga函数，主要是和fetch进行配合；
+​	CityMaker SDK提供丰富的针对3D GIS软件开发的接口，用户可根据行业需求进行二次开发，以下为伟景行的应用开发产品；
 
-4.  `Utils/`：工具模块；
+- 三维规划信息系统 
 
-    1. `request.js`：异步请求工具；
+  CityMaker Planning V7.0是基于CityMaker 7产品体系架构推出的，面向城市规划设计、规划管理、规划审批、规划公示等三维规划领域的应用级解决方案；
 
-    2. `asyncInjectors`：异步注入saga和reducer工具；
+- 三维市政信息系统
 
-5.  `app.js`：项目总入口；
+  CityMaker Facility V7.0是基于CityMaker7研发，主要应用于市政设施或企业设施管理，提供三维可视化环境下设施的可视化、编辑、管理、分析等功能 ；
 
-6.  `index.html`：项目主页面模板；
+- 三维汇报演示系统
 
-7.  `routes.js`：项目所有路由，配置`url`；
+  CityMaker Presentation V1.0 是基于CityMaker7研发，主要应用于基于CityMaker系统的各行业的汇报演示；
 
-8.  `reducers.js`：项目基础`reducer`以及所有其他`reducer`的集合；
+- 三维地理信息共享平 台
 
-9.  `store.js`：项目构建store，加入所有的依赖；
+  CityMaker 三维地理信息共享平台 2.0 基于CityMaker 7研发，主要用于提供多类型的二三维地理空间数据和地理信息服务，帮助各行业部门实现数据或服务高效交流，提高城市空间信息共享和利用水平；
 
-10.  `docs/`：存放开发过程中产生的开发文档；
+##### 移动终端
 
-11.  `***.md`：描述信息的`markdown`文件；
+- 支持苹果iOS和安卓系统；
+- 支持网络数据服务及本地数据文件；
+- 支持三维场景，地形的可视化；
+- 多点触控交互漫游；
+- 城市级海量数据流畅调度；
+- 精美的场景渲染效果；
 
-12.  `server/`：`Node`服务器配置信息，用于本地研发；
+#### 二、CityMaker环境部署及示例
 
-13.  `.gitignore`：屏蔽`git`版本控制路径；
+​	能够使用CityMaker JavaScript API开发，要求先部署CityMaker GIS服务（GIS服务器统一部署），然后利用JavaScript API调用三维模型，因为基于ActiveX开发，故使用IE内核浏览器；
 
-14.  `.eslintrc`: `ESLint` 配置文件；
+##### CityMaker GIS服务部署
 
-15.  `package.json`：控制`npm`依赖包；
+​	需要申请软授权（授权申请专人负责），试用期一个月。试用软件包括：CityMaker Builder、CityMaker Server、CityMaker SDK、CityMaker Explorer Pro；软件下载地址：链接：[http://pan.baidu.com/s/1boGyetD](http://pan.baidu.com/s/1boGyetD) 密码：nk4t；
 
-16.  `README.md`：项目基础描述信息；
+​	GIS服务器端安装CityMaker Server，本公司GIS服务器由专人负责；
 
-17.  `webpack.base.config.js`：`webpack`基础配置信息；
+##### CityMaker Demo
 
-18.  `webpack.dev.config.js`：`webpack`开发配置信息；
+​	结合winterfall 2.0框架的开发CityMaker JavaScript API Demo，效果如下图所示：
 
-19.  `webpack.prod.config.js`：`webpack`产品配置信息；
+![CityMaker Demo](https://github.com/ecidi/coding-specification/blob/master/images/citymaker/citymaker.png)
 
-#### 安装指令
+#### 三、相关资料下载
 
-```node
-$ git clone <url>
-```
-
-```node
-$ npm install
-```
-
-国内可以选择使用`cnpm`--[点击这里](https://npm.taobao.org/)
-
-#### 项目启动
-
-```node
-$ npm run start
-```
-
-打开游览器，地址栏输入`http://localhost:8080`；
-
-#### 项目检测
-
-```node
-$ npm run lint
-```
-
-引入 `eslint`-->[点击这里](http://eslint.cn/docs/rules/) 代码规范检测机制。
-
-检测内容详见 `.eslintrc` 的配置，具体涵盖如下几项：
-
-1. 箭头函数参数使用圆括号；
-2. 箭头函数体使用大括号；
-3. object 末尾加逗号；
-4. 使用一致的缩进（暂时除去了这项检测，无法配置成'tab'，请自觉使用 tab 完成缩进）；
-5. 禁止对 function 的参数进行重新赋值，参数的任何属性值变动不会报错；
-6. 禁用 console，出现 console 会出警告；
-7. 要求使用模板字面量而非字符串连接；
-8. 要求对象字面量的简写或非简写一致性；
-9. 其他详见:
-   [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)、
-   [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)、
-   [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)、
-   [eslint-plugin-redux-saga](https://github.com/pke/eslint-plugin-redux-saga)
-
-#### Sublime ESlint 插件
-1. SublimeLinter
-2. SublimeLinter-contrib-eslint
-
-#### License
-
-[GPL](https://tldrlegal.com/license/gnu-general-public-license-v2)
-
-
-#### 项目更新日志
-
-v2.0.0​
-
-1. 为加强暂存数据的有效管理，引入大模块的概念，将原有Page的方式修改为以模块的形式
-进行组织，具体方式参见目录结构Modules部分。
-2. Modules目录下包含Base、Load、Login、Index等模块，Base是基础框架模块，Load是资源
-信息加载模块，Login是用户登录和退出模块，Index是首页模块。
-
-v1.1.0
-
-1. 新增图片和背景图demo，通过require能通过js动态实现图片路径的变动。
-2. 新增代码检测机制。
-3. 根据新的代码检测机制调整代码。
-4. 完成代码检测机制的文档内容。
-
-
-
-
-
+- [CityMakerServer7](https://github.com/ecidi/coding-specification/blob/master/images/citymaker/CityMakerServer7.pdf)
+- [CityMaker SDK7 - BS初级开发介绍](https://github.com/ecidi/coding-specification/blob/master/images/citymaker/CityMaker%20SDK7%20%20-%20BS%E5%88%9D%E7%BA%A7%E5%BC%80%E5%8F%91%E4%BB%8B%E7%BB%8D.pdf)
+- [CityMaker SDK7 - BS中级开发介绍](https://github.com/ecidi/coding-specification/blob/master/images/citymaker/CityMaker%20SDK7%20%20-%20BS%E4%B8%AD%E7%BA%A7%E5%BC%80%E5%8F%91%E4%BB%8B%E7%BB%8D.pdf)
+- [CityMaker SDK7 - BS高级开发介绍](https://github.com/ecidi/coding-specification/blob/master/images/citymaker/CityMaker%20SDK7%20%20-%20BS%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E4%BB%8B%E7%BB%8D.pdf)
+- [CityMaker7.1软件操作流程V0.7](https://github.com/ecidi/coding-specification/blob/master/images/citymaker/CityMaker7.1%E8%BD%AF%E4%BB%B6%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8BV0.7.chm)
 
