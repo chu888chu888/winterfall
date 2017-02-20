@@ -23,14 +23,14 @@
 
 - 可以通过 npm 直接安装到项目中，使用 `import` 进行引用。
 
-```python
-	$ npm install antd --save
+```
+  $ npm install antd --save
 ```
 
 - 引入样式
 
 ```javascript
-	import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
+  import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
 - 应用实例
