@@ -1,147 +1,126 @@
+### JavaScript 的图表库 [ECharts](http://echarts.baidu.com/index.html)
 
-### winterfall  v 2.0.0
+​	ECharts，一个纯 Javascript 的图表库，可以流畅的运行在 PC 和移动设备上，兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等），底层依赖轻量级的 Canvas 类库 [ZRender](https://github.com/ecomfe/zrender)，提供直观，生动，可交互，可高度个性化定制的数据可视化图表。
 
-*—— Winter is coming*
+​	ECharts 3 中更是加入了更多丰富的交互功能以及更多的可视化效果，并且对移动端做了深度的优化。
 
-#### 目录结构
+#### ECharts特性介绍
 
-1.  `app/`：源代码根目录；
+- 丰富的图表类型
 
-2.  `Components/`：功能性模块，无法通过`url`单独导航到；
+​	ECharts 提供了常规的[折线图](http://echarts.baidu.com/option.html#series-line)，[柱状图](http://echarts.baidu.com/option.html#series-line)，[散点图](http://echarts.baidu.com/option.html#series-scatter)，[饼图](http://echarts.baidu.com/option.html#series-pie)，[K线图](http://echarts.baidu.com/option.html#series-candlestick)，用于统计的[盒形图](http://echarts.baidu.com/option.html#series-boxplot)，用于地理数据可视化的[地图](http://echarts.baidu.com/option.html#series-map)，[热力图](http://echarts.baidu.com/option.html#series-heatmap)，[线图](http://echarts.baidu.com/option.html#series-lines)，用于关系数据可视化的[关系图](http://echarts.baidu.com/option.html#series-graph)，[treemap](http://echarts.baidu.com/option.html#series-treemap)，多维数据可视化的[平行坐标](http://echarts.baidu.com/option.html#series-parallel)，还有用于 BI 的[漏斗图](http://echarts.baidu.com/option.html#series-funnel)，[仪表盘](http://echarts.baidu.com/option.html#series-gauge)，并且支持图与图之间的混搭。
 
-    1. `Button/`：模块名字，可通过`import`方式导入到实际页面；
+- 多个坐标系的支持
 
-      - `index.js`：默认内容；
-      - `styles.css`：默认样式；
+​	ECharts 3 开始独立出了“坐标系”的概念，支持了直角坐标系（catesian，同 grid）、极坐标系（polar）、地理坐标系（geo）。图表可以跨坐标系存在，例如折、柱、散点等图可以放在直角坐标系上，也可以放在极坐标系上，甚至可以放在地理坐标系中。
 
-3.  `Modules/`：页面大模块，包含几大业务模块;
+- 移动端的优化
 
-    1. `Index/`：首页模块
+​	流量珍贵的移动端需要图表库的体积尽量小。ECharts 和 ZRender 代码的重构，带来了核心部分体积的减小。ECharts 组件众多，并且后面会持续增加，我们提供了更细粒度的按需打包能力。最小体积缩小为 ECharts 2 的 40%。
 
-      - `Images/`: 图片目录；
+- 深度的交互式数据探索
 
-      - `Pages/`: 页面子模块，可通过`url`单独导航到；
-        
-          - `IndexPage`:
-               - `index.js`：默认内容；
-               - `styles.css`：默认样式；
-               - `selectors.js`：所有从store中获取内容的函数；
+​	交互是从数据中发掘信息的重要手段。“总览为先，缩放过滤按需查看细节”是数据可视化交互的基本需求。ECharts 一直在*交互*的路上前进，我们提供了 [legend](http://echarts.baidu.com/option.html#legend) [visualMap](http://echarts.baidu.com/option.html#visualMap) [dataZoom](http://echarts.baidu.com/option.html#dataZoom) [tooltip](http://echarts.baidu.com/option.html#tooltip)等组件以及图表附带的漫游，选取等操作提供了数据筛取、视图缩放、展示细节等能力。ECharts 3 中，对这些组件进行了广泛增强，例如支持在数据的各种坐标轴、维度进行数据过滤、缩放，以及在更多的图中采用这些组件。
 
-      - `Store`: 数据流页面，数据存储及流转等过程；
+- 大数据量的展现
 
-           - `action.js`：所有的action函数（Redux）；
-           - `actionType.js`：所有的actionType定义（Redux）；
-           - `reducer.js`：所有store变动函数（Redux）；
-           - `sagas.js`：所有saga函数，主要是和fetch进行配合；
+​	借助 Canvas 的能力，ECharts 在散点图中能够轻松展现上万甚至上十万的数据。
 
-4.  `Utils/`：工具模块；
+- 多维数据的支持以及丰富的视觉编码手段
 
-    1. `request.js`：异步请求工具；
+​	ECharts 3 开始加强了对多维数据的支持。除了加入了平行坐标等常见的多维数据可视化工具外，对于传统的散点图等，传入的数据也可以是多个维度的。配合视觉映射组件 [visualMap](http://echarts.baidu.com/option.html#visualMap) 提供的丰富的视觉编码，能够将不同维度的数据映射到颜色，大小，透明度，明暗度等不同的视觉通道。
 
-    2. `asyncInjectors`：异步注入saga和reducer工具；
+- 动态数据
 
-5.  `app.js`：项目总入口；
+​	ECharts 由数据驱动，数据的改变驱动图表展现的改变。因此动态数据的实现也变得异常简单，只需要获取数据，填入数据，ECharts 会找到两组数据之间的差异然后通过合适的动画去表现数据的变化。
 
-6.  `index.html`：项目主页面模板；
+- 绚丽的特效
 
-7.  `routes.js`：项目所有路由，配置`url`；
+​	ECharts 针对线数据，点数据等地理数据的可视化提供了吸引眼球的特效。
 
-8.  `reducers.js`：项目基础`reducer`以及所有其他`reducer`的集合；
+#### 在webpack中使用ECharts
 
-9.  `store.js`：项目构建store，加入所有的依赖；
+​	在 `3.1.1` 版本之前 ECharts 在 npm 上的 package 是非官方维护的，从 `3.1.1` 开始由官方 [EFE](https://github.com/ecomfe/) 维护 npm 上 ECharts 和 zrender 的 package。你可以使用如下命令通过 npm 安装 ECharts：
 
-10.  `docs/`：存放开发过程中产生的开发文档；
-
-11.  `***.md`：描述信息的`markdown`文件；
-
-12.  `server/`：`Node`服务器配置信息，用于本地研发；
-
-13.  `.gitignore`：屏蔽`git`版本控制路径；
-
-14.  `.eslintrc`: `ESLint` 配置文件；
-
-15.  `package.json`：控制`npm`依赖包；
-
-16.  `README.md`：项目基础描述信息；
-
-17.  `webpack.base.config.js`：`webpack`基础配置信息；
-
-18.  `webpack.dev.config.js`：`webpack`开发配置信息；
-
-19.  `webpack.prod.config.js`：`webpack`产品配置信息；
-
-#### 安装指令
-
-```node
-$ git clone <url>
+```
+npm install echarts --save
 ```
 
-```node
-$ npm install
+​	通过 npm 上安装的 ECharts 和 zrender 会放在`node_modules`目录下。可以直接在项目代码中 `require('echarts')` 得到 ECharts。
+
+```javascript
+var echarts = require('echarts'); // ES6:  import echarts from 'echarts'
+
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('main'));
+// 绘制图表
+myChart.setOption({
+    title: { text: 'ECharts 入门示例' },
+    tooltip: {},
+    xAxis: {
+        data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+    },
+    yAxis: {},
+    series: [{
+        name: '销量',
+        type: 'bar',
+        data: [5, 20, 36, 10, 10, 20]
+    }]
+});
 ```
 
-国内可以选择使用`cnpm`--[点击这里](https://npm.taobao.org/)
+​	默认使用 `require('echarts')` 得到的是已经加载了所有图表和组件的 ECharts 包，因此体积会比较大，如果在项目中对体积要求比较苛刻，也可以只按需引入需要的模块。例如上面示例代码中只用到了柱状图，提示框和标题组件，因此在引入的时候也只需要引入这些模块，可以有效的将打包后的体积从 400 多 KB 减小到 170 多 KB。
 
-#### 项目启动
+```javascript
+// 引入 ECharts 主模块
+var echarts = require('echarts/lib/echarts'); // ES6:  import echarts from 'echarts'
+// 引入柱状图
+require('echarts/lib/chart/bar');
+// 引入提示框和标题组件
+require('echarts/lib/component/tooltip');
+require('echarts/lib/component/title');
 
-```node
-$ npm run start
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('main'));
+// 绘制图表
+myChart.setOption({
+    title: { text: 'ECharts 入门示例' },
+    tooltip: {},
+    xAxis: {
+        data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+    },
+    yAxis: {},
+    series: [{
+        name: '销量',
+        type: 'bar',
+        data: [5, 20, 36, 10, 10, 20]
+    }]
+});
 ```
 
-打开游览器，地址栏输入`http://localhost:8080`；
+可以按需引入的模块列表见 [https://github.com/ecomfe/echarts/blob/master/index.js](https://github.com/ecomfe/echarts/blob/master/index.js)
 
-#### 项目检测
+#### API 参考
 
-```node
-$ npm run lint
+​	API参考见[http://echarts.baidu.com/api.html#echarts](http://echarts.baidu.com/api.html#echarts)
+
+#### 配置项手册
+
+​	配置项手册见[http://echarts.baidu.com/option.html#title](http://echarts.baidu.com/option.html#title)
+
+#### Winterfall 2.0框架与ECharts结合Demo
+
+​	Demo分别使用纯ECharts和ECharts-for-React插件，制作Demo;
+
+​	依赖安装如下：
+
+```
+npm install echarts --save
+npm install echarts-for-react --save
 ```
 
-引入 `eslint`-->[点击这里](http://eslint.cn/docs/rules/) 代码规范检测机制。
+​	效果如图：
 
-检测内容详见 `.eslintrc` 的配置，具体涵盖如下几项：
+![ECharts](https://github.com/ecidi/coding-specification/blob/master/images/echarts/echarts_echars.png)
 
-1. 箭头函数参数使用圆括号；
-2. 箭头函数体使用大括号；
-3. object 末尾加逗号；
-4. 使用一致的缩进（暂时除去了这项检测，无法配置成'tab'，请自觉使用 tab 完成缩进）；
-5. 禁止对 function 的参数进行重新赋值，参数的任何属性值变动不会报错；
-6. 禁用 console，出现 console 会出警告；
-7. 要求使用模板字面量而非字符串连接；
-8. 要求对象字面量的简写或非简写一致性；
-9. 其他详见:
-   [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)、
-   [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)、
-   [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)、
-   [eslint-plugin-redux-saga](https://github.com/pke/eslint-plugin-redux-saga)
-
-#### Sublime ESlint 插件
-1. SublimeLinter
-2. SublimeLinter-contrib-eslint
-
-#### License
-
-[GPL](https://tldrlegal.com/license/gnu-general-public-license-v2)
-
-
-#### 项目更新日志
-
-v2.0.0
-
-​1. 为加强暂存数据的有效管理，引入大模块的概念，将原有Page的方式修改为以模块的形式
-进行组织，具体方式参见目录结构Modules部分；
-
-​2. Modules目录下包含Base、Load、Login、Index等模块，Base是基础框架模块，Load是资源
-信息加载模块，Login是用户登录和退出模块，Index是首页模块；
-
-v1.1.0
-
-1. 新增图片和背景图demo，通过require能通过js动态实现图片路径的变动。
-2. 新增代码检测机制。
-3. 根据新的代码检测机制调整代码。
-4. 完成代码检测机制的文档内容。
-
-
-
-
-
-
+![ECharts-for-React](https://github.com/ecidi/coding-specification/blob/master/images/echarts/echarts_rechars.png)
