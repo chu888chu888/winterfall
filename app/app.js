@@ -52,12 +52,11 @@ window.dgn = document.getElementById('dgn');
 window.dgn.style.display = 'none';
 // 全局配置文件
 window.systemsetting = {
-	serverUrl: 'http://10.215.4.36:8007',
 	modelName: '杨房沟总装',
-	modelServerAddress: 'http://10.215.160.35:6511/api/user/meta-files/?category=1',
+	modelServerAddress: 'http://bimyfg.ecidi.com:6511/api/user/meta-files/?category=1',
 	pp: 'yfg:yfg',
-	DGNAddress: 'http://10.215.160.35:6511/api/user/meta-files/?category=4',
-	modelDownloadAddress: 'http://10.215.160.35:6512/media/documents/meta/',
+	DGNAddress: 'http://bimyfg.ecidi.com:6511/api/user/meta-files/?category=4',
+	modelDownloadAddress: 'http://bimyfg.ecidi.com:6512/media/documents/meta/',
 };
 
 ReactDOM.render(
