@@ -2,7 +2,7 @@
 import L from 'leaflet';
 
 function getChinaProviderByType(type,options) {
-    var providers = {
+    let providers = {
         // 天地图
         TianDiTu: {
             Normal: {
@@ -55,17 +55,17 @@ function getChinaProviderByType(type,options) {
         }
     }
 
-    var parts = type.split('.');
+    let parts = type.split('.');
 
-    var providerName = parts[0];
-    var mapName = parts[1];
-    var mapType = parts[2];
+    let providerName = parts[0];
+    let mapName = parts[1];
+    let mapType = parts[2];
 
-    var url = providers[providerName][mapName][mapType];
+    let url = providers[providerName][mapName][mapType];
 
     options.subdomains = providers[providerName].Subdomains;
 
-    return L.tileLayer(url,options);
+    return L.tileLayer(url, options);
 };
 
 export default getChinaProviderByType;

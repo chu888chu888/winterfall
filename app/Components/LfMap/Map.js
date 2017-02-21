@@ -5,7 +5,6 @@ import 'leaflet/dist/leaflet.css';
 import styles from './styles.css';
 import getChinaProviderByType from './Providers';
 
-
 export class Map extends React.Component {
 	constructor(props) {
 		super(props);
