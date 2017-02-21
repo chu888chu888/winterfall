@@ -1,146 +1,279 @@
+### Leaflet
 
-### winterfall  v 2.0.0
+(an open-source JavaScript libraryfor mobile-friendly interactive maps)
 
-*—— Winter is coming*
+Leaflet 是一个为建设移动设备友好的互动地图，而开发的现代的、开源的 JavaScript 库。它是由 Vladimir Agafonkin 带领一个专业贡献者团队开发，虽然代码仅有 33 KB，但它具有开发人员开发在线地图的大部分功能。
 
-#### 目录结构
+Leaflet设计坚持简便、高性能和可用性好的思想，在所有主要桌面和移动平台能高效运作，在现代浏览器上会利用HTML5和CSS3的优势，同时也支持旧的浏览器访问。支持插件扩展，有一个友好、易于使用的API文档和一个简单的、可读的源代码。
 
-1.  `app/`：源代码根目录；
+### 相关下载
 
-2.  `Components/`：功能性模块，无法通过`url`单独导航到；
+​	目前下载稳定版本 [Leaflet](http://leafletjs.com/download.html) 1.0.3；
 
-    1. `Button/`：模块名字，可通过`import`方式导入到实际页面；
+#### 三种引用方式
 
-      - `index.js`：默认内容；
-      - `styles.css`：默认样式；
+- 引用CDN方式
 
-3.  `Modules/`：页面大模块，包含几大业务模块;
-
-    1. `Index/`：首页模块
-
-      - `Images/`: 图片目录；
-
-      - `Pages/`: 页面子模块，可通过`url`单独导航到；
-        
-          - `IndexPage`:
-               - `index.js`：默认内容；
-               - `styles.css`：默认样式；
-               - `selectors.js`：所有从store中获取内容的函数；
-
-      - `Store`: 数据流页面，数据存储及流转等过程；
-
-           - `action.js`：所有的action函数（Redux）；
-           - `actionType.js`：所有的actionType定义（Redux）；
-           - `reducer.js`：所有store变动函数（Redux）；
-           - `sagas.js`：所有saga函数，主要是和fetch进行配合；
-
-4.  `Utils/`：工具模块；
-
-    1. `request.js`：异步请求工具；
-
-    2. `asyncInjectors`：异步注入saga和reducer工具；
-
-5.  `app.js`：项目总入口；
-
-6.  `index.html`：项目主页面模板；
-
-7.  `routes.js`：项目所有路由，配置`url`；
-
-8.  `reducers.js`：项目基础`reducer`以及所有其他`reducer`的集合；
-
-9.  `store.js`：项目构建store，加入所有的依赖；
-
-10.  `docs/`：存放开发过程中产生的开发文档；
-
-11.  `***.md`：描述信息的`markdown`文件；
-
-12.  `server/`：`Node`服务器配置信息，用于本地研发；
-
-13.  `.gitignore`：屏蔽`git`版本控制路径；
-
-14.  `.eslintrc`: `ESLint` 配置文件；
-
-15.  `package.json`：控制`npm`依赖包；
-
-16.  `README.md`：项目基础描述信息；
-
-17.  `webpack.base.config.js`：`webpack`基础配置信息；
-
-18.  `webpack.dev.config.js`：`webpack`开发配置信息；
-
-19.  `webpack.prod.config.js`：`webpack`产品配置信息；
-
-#### 安装指令
-
-```node
-$ git clone <url>
+```javascript
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 ```
 
-```node
-$ npm install
+- 本地文件引用方式
+
+```javascript
+<link rel="stylesheet" href="/path/to/leaflet.css" />
+<script src="/path/to/leaflet.js"></script> <!-- or use leaflet-src.js --!>
 ```
 
-国内可以选择使用`cnpm`--[点击这里](https://npm.taobao.org/)
+- 使用NPM包管理器方式
 
-#### 项目启动
-
-```node
-$ npm run start
+```javascript
+npm install leaflet --save
+//引用方式
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 ```
 
-打开游览器，地址栏输入`http://localhost:8080`；
+#### 源码编译
 
-#### 项目检测
+- 安装Node
+- 安装jake
 
-```node
-$ npm run lint
+```
+npm install -g jake
+npm install
 ```
 
-引入 `eslint`-->[点击这里](http://eslint.cn/docs/rules/) 代码规范检测机制。
+- 在源码目录编译
 
-检测内容详见 `.eslintrc` 的配置，具体涵盖如下几项：
+```
+jake build  
+```
 
-1. 箭头函数参数使用圆括号；
-2. 箭头函数体使用大括号；
-3. object 末尾加逗号；
-4. 使用一致的缩进（暂时除去了这项检测，无法配置成'tab'，请自觉使用 tab 完成缩进）；
-5. 禁止对 function 的参数进行重新赋值，参数的任何属性值变动不会报错；
-6. 禁用 console，出现 console 会出警告；
-7. 要求使用模板字面量而非字符串连接；
-8. 要求对象字面量的简写或非简写一致性；
-9. 其他详见:
-   [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)、
-   [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)、
-   [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)、
-   [eslint-plugin-redux-saga](https://github.com/pke/eslint-plugin-redux-saga)
+编译之后，在相应目录下生成dist文件夹，包含`leaflet.js`、`leaflet-src.js`、`leaflet.css`、``images` `；
 
-#### Sublime ESlint 插件
-1. SublimeLinter
-2. SublimeLinter-contrib-eslint
+### 相关插件
 
-#### License
+- [ChineseTmsProviders](https://github.com/htoooth/Leaflet.ChineseTmsProviders)，加载国内瓦片地图插件，加载地图包含：天地图、高德地图、谷歌地图和智图；
+- [Esri-Leaflet](https://github.com/Esri/esri-leaflet)，使用结合Leaflet的ArcGIS服务的一系列工具；
 
-[GPL](https://tldrlegal.com/license/gnu-general-public-license-v2)
+### demo_leaflet for winterfall 2.0
+
+- providers.js
+
+```javascript
+import L from 'leaflet';
+
+function getChinaProviderByType(type,options) {
+    let providers = {
+        // 天地图
+        TianDiTu: {
+            Normal: {
+                Map: "http://t{s}.tianditu.cn/DataServer?T=vec_w&X={x}&Y={y}&L={z}",
+                Annotion: "http://t{s}.tianditu.cn/DataServer?T=cva_w&X={x}&Y={y}&L={z}",
+            },
+            Satellite: {
+                Map: "http://t{s}.tianditu.cn/DataServer?T=img_w&X={x}&Y={y}&L={z}",
+                Annotion: "http://t{s}.tianditu.cn/DataServer?T=cia_w&X={x}&Y={y}&L={z}",
+            },
+            Terrain: {
+                Map: "http://t{s}.tianditu.cn/DataServer?T=ter_w&X={x}&Y={y}&L={z}",
+                Annotion: "http://t{s}.tianditu.cn/DataServer?T=cta_w&X={x}&Y={y}&L={z}",
+            },
+            Subdomains: ['0', '1', '2', '3', '4', '5', '6', '7']
+        },
+        // 高德
+        GaoDe: {
+            Normal: {
+                Map: 'http://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',
+            },
+            Satellite: {
+                Map: 'http://webst0{s}.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}',
+                Annotion: 'http://webst0{s}.is.autonavi.com/appmaptile?style=8&x={x}&y={y}&z={z}'
+            },
+            Subdomains: ["1", "2", "3", "4"]
+        },
+        // 谷歌
+        Google: {
+            Normal: {
+                Map: "http://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}"
+            },
+            Satellite: {
+                Map: "http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}"
+            },
+            Subdomains: []
+        },
+        // 智图
+        Geoq: {
+            Normal: {
+                Map: "http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer/tile/{z}/{y}/{x}",
+                Color: "http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetColor/MapServer/tile/{z}/{y}/{x}",
+                PurplishBlue: "http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}",
+                Gray: "http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetGray/MapServer/tile/{z}/{y}/{x}",
+                Warm: "http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetWarm/MapServer/tile/{z}/{y}/{x}",
+                Cold: "http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetCold/MapServer/tile/{z}/{y}/{x}"
+            },
+            Subdomains: []
+
+        }
+    }
+
+    let parts = type.split('.');
+
+    let providerName = parts[0];
+    let mapName = parts[1];
+    let mapType = parts[2];
+
+    let url = providers[providerName][mapName][mapType];
+
+    options.subdomains = providers[providerName].Subdomains;
+
+    return L.tileLayer(url, options);
+};
+
+export default getChinaProviderByType;
+
+```
+
+- styles.css
+
+```css
+:global(#mapid) {
+	width: 960px;
+	height: 600px;
+}
+```
+
+- Map.js
+
+```javascript
+import 'leaflet/dist/leaflet.css';
+import styles from './styles.css';
+import getChinaProviderByType from './Providers';
+
+export class Map extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+		};
+	}
+
+	componentDidMount() {
+		this.initLfMap();
+	}
+
+	initLfMap() {
+		const normalm = getChinaProviderByType('TianDiTu.Normal.Map', {
+			maxZoom: 18,
+			minZoom: 5,
+			}),
+			normala = getChinaProviderByType('TianDiTu.Normal.Annotion', {
+			maxZoom: 18,
+			minZoom: 5,
+			}),
+			imgm = getChinaProviderByType('TianDiTu.Satellite.Map', {
+			maxZoom: 18,
+			minZoom: 5,
+			}),
+			imga = getChinaProviderByType('TianDiTu.Satellite.Annotion', {
+			maxZoom: 18,
+			minZoom: 5,
+			});
+
+		const normal = L.layerGroup([normalm, normala]),
+			image = L.layerGroup([imgm, imga]);
+
+		const baseLayers = {
+			'地图': normal,
+			'影像': image,
+		}
+
+		const littleton = L.marker([22.5, 113.96]).bindPopup('This is Littleton, CO.'),
+			  denver    = L.marker([22.53, 113.97]).bindPopup('This is Denver, CO.');
+		const cities = L.layerGroup([littleton, denver]);
+
+		const overlayLayers = {
+			'Cities': cities,
+		}
+
+		const map = L.map('mapid', {
+			center: [22.5, 113.96],
+			zoom: 12,
+			layers: [image],
+			zoomControl: false,
+		});
+
+		L.control.layers(baseLayers, overlayLayers).addTo(map);
+		L.control.zoom({
+			zoomInTitle: '放大',
+			zoomOutTitle: '缩小',
+		}).addTo(map);
+	}
 
 
-#### 项目更新日志
+	render() {
+		return (
+			<div id="mapid"></div>
+		);
+	}
+}
 
-v2.0.0​
+export default Map;
+```
 
-1. 为加强暂存数据的有效管理，引入大模块的概念，将原有Page的方式修改为以模块的形式
-进行组织，具体方式参见目录结构Modules部分。
-2. Modules目录下包含Base、Load、Login、Index等模块，Base是基础框架模块，Load是资源
-信息加载模块，Login是用户登录和退出模块，Index是首页模块。
+- LfMap.js
 
-v1.1.0
+```javascript
+import Map from 'Components/LfMap/Map';
+export class LfMapPage extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+        };
+    }
 
-1. 新增图片和背景图demo，通过require能通过js动态实现图片路径的变动。
-2. 新增代码检测机制。
-3. 根据新的代码检测机制调整代码。
-4. 完成代码检测机制的文档内容。
+	componentDidMount() {
+	}
 
+	openFeaturesPage = () => {
+		this.props.changeRoute('/features');
+	};
 
+	render() {
+		return (
+			<div>
+				<Helmet title="Leaflet Map" />
+				<div className={styles['route-body']}>
+					<div className={styles['row-container']}>
+						<div className={styles['row-2']}>
+							<h4><a href="http://leafletjs.com/index.html" target="_blank">Leaflet</a> Demo,数据源是天地图数据</h4>
+							<Map />
+						</div>
+					</div>
+				</div>
+			</div>
+		);
+	}
+}
+LfMapPage.propTypes = {
+	changeRoute: React.PropTypes.func,
+};
+// 任何时候，只要 Redux store 发生改变，mapStateToProps 函数就会被调用。
+const mapStateToProps = createStructuredSelector({
+});
+// 如果你省略这个 mapDispatchToProps 参数，默认情况下，dispatch 会注入到你的组件 props 中。
+export function mapDispatchToProps(dispatch) {
+	return {
+		changeRoute: (url) => dispatch(push(url)),
+	};
+}
+// react-redux 的使用方式
+// connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
+// 连接 React 组件与 Redux store。
+export default connect(mapStateToProps, mapDispatchToProps)(LfMapPage);
+```
 
+- 加载天地图效果如下图
 
-
-
+![demo_leaflet](https://github.com/ecidi/coding-specification/blob/master/images/leaflet/leaflet.png)
