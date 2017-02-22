@@ -139,6 +139,7 @@ v2.0.0
    - 三维地理信息开发API [CityMaker](http://www.citymakeronline.com/index.htm)，内容详见分支[demo_citymaker](https://github.com/ecidi/winterfall/tree/demo_citymaker)；
    - JavaScript 的图表库 [ECharts](http://echarts.baidu.com/index.html)，内容详见分支[demo_echatrs](https://github.com/ecidi/winterfall/tree/demo_echatrs)；
    - ecidi数字化研发部BIM模型显示控制插件DGN 插件（WebBIM），内容详见分支[demo_dgn](https://github.com/ecidi/winterfall/tree/demo_dgn)；
+   - 360全景图加载，借助720yun平台实现，内容详见分支demo_720yun；
 
 v1.1.0
 
