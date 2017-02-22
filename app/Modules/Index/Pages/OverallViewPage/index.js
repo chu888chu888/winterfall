@@ -5,7 +5,7 @@
  * This source code is licensed under the GPL-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  *
- * IndexPage
+ * HomePage
  */
 
 import React from 'react';
@@ -13,11 +13,10 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import Helmet from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
-
 /* styles */
 import styles from './styles.css';
 
-export class IndexPage extends React.Component {
+export class OverallViewPage extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
@@ -25,58 +24,32 @@ export class IndexPage extends React.Component {
     }
 
 	componentDidMount() {
+		document.getElementById('overall-view').src = 'http://720yun.com/t/59e24jfOcya';
 	}
 
-	openIndexPage = () => {
-		this.props.changeRoute('/index');
-	};
-
-	openOverallViewPage = () => {
-		this.props.changeRoute('/overallview');
-	}
-
-	openAboutPage = () => {
-		this.props.changeRoute('/about');
-	};
-
-	openLoginPage = () => {
-		this.props.changeRoute('/login');
+	openFeaturesPage = () => {
+		this.props.changeRoute('/features');
 	};
 
 	render() {
 		return (
-			<article>
-				<Helmet title="Index" />
-				<div className={styles.wrapper}>
-					<header className={styles.header}>
-						<div className={styles['row-container']}>
-							<div className={styles['row-2']}>
-								<nav className={styles['nav-title']}>
-									<button className={styles.btn} onClick={() => this.openIndexPage()}>Ecidi</button>
-									<button className={styles.btn} onClick={() => this.openOverallViewPage()}>OverallView</button>
-									<button className={styles.btn} onClick={() => this.openAboutPage()}>About</button>
-									<button className={`${styles.btn} ${styles['btn-right']}`} onClick={() => this.openLoginPage()}>sign out</button>
-								</nav>
-							</div>
-						</div>
-					</header>
-				</div>
-				{React.Children.toArray(this.props.children)}
+			<div>
+				<Helmet title="全景" />
 				<div className={styles['route-body']}>
 					<div className={styles['row-container']}>
 						<div className={styles['row-2']}>
-							<h6>浙江华东工程数字技术有限公司</h6>
+							<a href="http://720yun.com/t/59e24jfOcya">720yun全景图</a>
+							<iframe id="overall-view" src="" className={styles.overall}></iframe>
 						</div>
 					</div>
 				</div>
-			</article>
+			</div>
 		);
 	}
 }
 
-IndexPage.propTypes = {
+OverallViewPage.propTypes = {
 	changeRoute: React.PropTypes.func,
-	children: React.PropTypes.node,
 };
 
 // 任何时候，只要 Redux store 发生改变，mapStateToProps 函数就会被调用。
@@ -93,4 +66,4 @@ export function mapDispatchToProps(dispatch) {
 // react-redux 的使用方式
 // connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
 // 连接 React 组件与 Redux store。
-export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);
+export default connect(mapStateToProps, mapDispatchToProps)(OverallViewPage);
