@@ -67,6 +67,12 @@
 
 ![CityMaker Demo](https://github.com/ecidi/coding-specification/blob/master/images/citymaker/citymaker.png)
 
+##### 测试数据
+
+​	[前海倾斜摄影](http://urban.ecidi.com:8006/qh.cep)
+
+​	[宁波地铁三维](http://urban.ecidi.com:8006/nbMetro.cep)
+
 #### 三、相关资料下载
 
 - [CityMakerServer7](https://github.com/ecidi/coding-specification/blob/master/images/citymaker/CityMakerServer7.pdf)
