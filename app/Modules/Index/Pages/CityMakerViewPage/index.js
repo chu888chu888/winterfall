@@ -35,7 +35,7 @@ export class CityMakerViewPage extends React.Component {
     
 	    this.checkToInstall();
 
-	    plugin.project.open("http://urban.ecidi.com:8006/nbMetro.cep", "", "");//inputObj.value即为打开cep路径
+	    plugin.project.open("http://urban.ecidi.com:8006/qh.cep", "", "");//inputObj.value即为打开cep路径
 	    
 	}
 
