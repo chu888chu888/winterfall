@@ -5,7 +5,7 @@
  * This source code is licensed under the GPL-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  *
- * IndexPage
+ * HomePage
  */
 
 import React from 'react';
@@ -13,11 +13,12 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import Helmet from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
-
 /* styles */
 import styles from './styles.css';
 
-export class IndexPage extends React.Component {
+import 'Components/ckplayer/ckplayer.js';
+
+export class HikVisionPage extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
@@ -25,58 +26,53 @@ export class IndexPage extends React.Component {
     }
 
 	componentDidMount() {
+
+		/*const script = document.createElement("script");
+		script.src = 'http://urban.ecidi.com:8006/hikvision/ckplayer/ckplayer.js';
+		document.body.appendChild(script);*/
+
+		let flashvars;
+        flashvars = {
+            f: 'http://urban.ecidi.com:8006/hikvision//ckplayer/m3u8.swf',
+            a: 'http://open.ys7.com/openlive/7edcea80f1284dfdaebe1af6573dfb67.hd.m3u8', //此处填写购买获取到的视频播放地址
+            c: 0,
+            p: 1,
+            s: 4,
+            lv: 1,
+        };
+        let params = {
+			bgcolor: '#FFF',
+			allowFullScreen: true,
+			allowScriptAccess: 'always',
+			wmode: 'transparent',
+        };
+        CKobject.embedSWF('http://urban.ecidi.com:8006/hikvision/ckplayer//ckplayer.swf',
+        	'videoPlay', 'video', '100%', '100%', flashvars, params);
+
 	}
 
-	openIndexPage = () => {
-		this.props.changeRoute('/index');
-	};
-
-	openHikVisionPage = () => {
-		this.props.changeRoute('/hikvision');
-	};
-
-	openAboutPage = () => {
-		this.props.changeRoute('/about');
-	};
-
-	openLoginPage = () => {
-		this.props.changeRoute('/login');
+	openFeaturesPage = () => {
+		this.props.changeRoute('/features');
 	};
 
 	render() {
 		return (
-			<article>
-				<Helmet title="Index" />
-				<div className={styles.wrapper}>
-					<header className={styles.header}>
-						<div className={styles['row-container']}>
-							<div className={styles['row-2']}>
-								<nav className={styles['nav-title']}>
-									<button className={styles.btn} onClick={() => this.openIndexPage()}>Ecidi</button>
-									<button className={styles.btn} onClick={() => this.openHikVisionPage()}>HIK Vision</button>
-									<button className={styles.btn} onClick={() => this.openAboutPage()}>About</button>
-									<button className={`${styles.btn} ${styles['btn-right']}`} onClick={() => this.openLoginPage()}>sign out</button>
-								</nav>
-							</div>
-						</div>
-					</header>
-				</div>
-				{React.Children.toArray(this.props.children)}
+			<div>
+				<Helmet title="Readme" />
 				<div className={styles['route-body']}>
 					<div className={styles['row-container']}>
 						<div className={styles['row-2']}>
-							<h6>浙江华东工程数字技术有限公司</h6>
+							<div className={styles['row-video']} id="videoPlay"></div>
 						</div>
 					</div>
 				</div>
-			</article>
+			</div>
 		);
 	}
 }
 
-IndexPage.propTypes = {
+HikVisionPage.propTypes = {
 	changeRoute: React.PropTypes.func,
-	children: React.PropTypes.node,
 };
 
 // 任何时候，只要 Redux store 发生改变，mapStateToProps 函数就会被调用。
@@ -93,4 +89,4 @@ export function mapDispatchToProps(dispatch) {
 // react-redux 的使用方式
 // connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
 // 连接 React 组件与 Redux store。
-export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);
+export default connect(mapStateToProps, mapDispatchToProps)(HikVisionPage);
