@@ -139,6 +139,23 @@ export default function createRoutes(store) {
 
 				importModules.catch(errorLoading);
 			},
+		},
+		{
+			path: '/signature',
+			name: 'signature',
+			getComponent: (nextState, cb) => {
+				const importModules = Promise.all([
+					System.import('Modules/Index/Pages/SignaturePage'),
+				]);
+
+				const renderRoute = loadModule(cb);
+
+				importModules.then(([component]) => {
+					renderRoute(component);
+				});
+
+				importModules.catch(errorLoading);
+			},
 		}],
 	}];
 }

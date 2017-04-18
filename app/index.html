@@ -5,7 +5,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>winterfall</title>
 	</head>
-	<body>
-		<div id="app"></div>
+	<body 
+		onLoad="DocForm.SignatureControl.ShowSignature('<%=DocumentID%>');"
+		onUnload="DocForm.SignatureControl.DeleteSignature();">
+		<form name="DocForm">
+			<input type="hidden" name="DocumentID" value="<%=DocumentID%>"/>
+			<OBJECT id="SignatureControl"   classid="clsid:D85C89BE-263C-472D-9B6B-5264CD85B36E"  codebase="iSignatureHTML.cab#version=8,2,2,56" width=0 height=0>
+				<!--读去数据库相关信息-->
+				<!-- <param name="ServiceUrl" value="http://www.kinggrid.com:8080/iSignatureHTML/Service.jsp"> -->
+				<param name="ServiceUrl" value="http://docs.ecidi.com:6501/iSignatureHTML/Service.jsp">
+				<!--打印控制方式（0:不控制  1：签章服务器控制  2：开发商控制）-->
+				<param name="PrintControlType" value=2>
+			</OBJECT>
+			<div id="app"></div>
+		</form>
 	</body>
 </html>

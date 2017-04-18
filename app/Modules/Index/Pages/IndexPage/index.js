@@ -39,6 +39,10 @@ export class IndexPage extends React.Component {
 		this.props.changeRoute('/login');
 	};
 
+	openSinaturePage = () => {
+		this.props.changeRoute('/signature');
+	}
+
 	render() {
 		return (
 			<article>
@@ -50,6 +54,7 @@ export class IndexPage extends React.Component {
 								<nav className={styles['nav-title']}>
 									<button className={styles.btn} onClick={() => this.openIndexPage()}>Ecidi</button>
 									<button className={styles.btn} onClick={() => this.openAboutPage()}>About</button>
+									<button className={styles.btn} onClick={() => this.openSinaturePage()}>Sinature</button>
 									<button className={`${styles.btn} ${styles['btn-right']}`} onClick={() => this.openLoginPage()}>sign out</button>
 								</nav>
 							</div>

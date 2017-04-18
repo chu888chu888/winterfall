@@ -48,6 +48,10 @@ const rootRoute = {
 	childRoutes: createRoutes(store),
 };
 
+window.systemsetting = {
+    "serverAddress":"http://10.215.160.35:6520/api/",
+}
+
 ReactDOM.render(
 	<Provider store={store}>
 		<Router

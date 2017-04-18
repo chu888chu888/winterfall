@@ -1,0 +1,34 @@
+.route-body {
+    padding-top: 60px;
+    margin-top: 0;
+}
+
+.row-container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.row-2 {
+    font-size: 26px;
+}
+
+.row-button{
+}
+
+.row-jfqz{
+	width:100%;
+	height:100%;
+	background-color: #ffffff;
+}
+
+.row-jfqz-name{
+		width:100%;
+}
+
+.row-jfqz-content{
+	border-bottom:1px solid;
+	border-color:#ff0000;
+	cursor:hand;
+	width: 100%;
+	height: 300px;
+}
